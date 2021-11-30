@@ -1,8 +1,0 @@
-/**
-@defgroup boards Boards
-
-## What goes here?
-
-List of supported boards by Mesh4all
-
-*/
