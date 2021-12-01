@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Globals</title>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <script src="jquery.powertip.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script src="jquery.scrollTo.min.js"></script>
+    <script src="doxy-jquery.js"></script>
+    <script src="dynsections.js"></script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <!-- Bootstrap -->
+    <link href="doxygen.css" rel="stylesheet">
+    <link href="fonts.css" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="jquery.smartmenus.bootstrap.css" rel="stylesheet">
+    <link href="m4a.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        function displaySR() {
+            searchBox.Search();
+            var rhtml = (document.getElementById('MSearchResults').contentWindow.document.body.innerHTML).replace(/href=\"\.\.\//g, 'href="');
+            document.getElementById('MSearchResultsWindow').style.display = 'none';
+            document.getElementById('top').append(document.getElementById('MSearchSelectWindow'));
+            document.getElementById('top').append(document.getElementById('MSearchResultsWindow'));
+            document.getElementById('doc-content').innerHTML = rhtml;
+        }
+        function modSearch() {
+            if (!searchBox.doxySearch) {
+                searchBox.doxySearch = searchBox.Search
+                searchBox.Search = function () {
+                    this.doxySearch();
+                    var r = document.getElementById('MSearchResultsWindow'); console.log(r.style);
+                    if (parseInt(r.style.left) < 0) r.style.left = 0;
+                    var x = document.getElementById('MSearchResults');
+                    if (x.scrollWidth > window.screen.width) x.style.width = window.screen.width - 2 + 'px';
+                    var f = document.getElementById('riot-searchform');
+                    if (parseInt(r.style.top) < f.offsetTop + f.scrollHeight) r.style.top = f.offsetTop + f.scrollHeight + 'px';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="top">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" id="brand-logo" href="http://mesh4all.org"><img height="80px"
+                            src="m4a-logo.svg" /></a>
+                    <p class="navbar-text text-center visible-xs">Documentation</p>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <p class="navbar-text navbar-left"><span id="projectbrief">Put here a short description</span></p>
+                    <ul id="riot-navlist" class="nav navbar-nav"></ul>
+                    <form id="riot-searchform" class="navbar-form navbar-left navbar-right" onsubmit="try{
+                        displaySR();
+                    }finally{
+                            return false;
+                    }">
+                        <div class="form-group">
+                            <div id="MSearchBox" class="MSearchBoxActive">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span id="MSearchSelect" class="glyphicon glyphicon-search" aria-hidden="true"
+                                            onmouseover="return searchBox.OnSearchSelectShow()"
+                                            onmouseout="return searchBox.OnSearchSelectHide()"></span>
+                                    </div>
+                                    <input class="form-control" type="text" id="MSearchField" placeholder="Search"
+                                        accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)"
+                                        onblur="searchBox.OnSearchFieldFocus(false)"
+                                        onkeyup="searchBox.OnSearchFieldChange(event); modSearch();">
+                                    <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()">
+                                        <span id="search-reset" class="glyphicon glyphicon-remove-circle"
+                                            aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div><!-- Generated by Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('globals.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+<div class="textblock">Here is a list of all documented functions, variables, defines, enums, and typedefs with links to the documentation:</div>
+
+<h3><a id="index_a"></a>- a -</h3><ul>
+<li>adc_channels
+: <a class="el" href="periph__conf_8h.html#a22877cb675e55db16cb1227b62dc9404">periph_conf.h</a>
+</li>
+<li>ADC_GAIN_FACTOR_DEFAULT
+: <a class="el" href="periph__conf_8h.html#ac2819c67b7940e365ac1f605525fea9c">periph_conf.h</a>
+</li>
+<li>ADC_NEG_INPUT
+: <a class="el" href="periph__conf_8h.html#ab94948d940d2301dca517f9dd2f22589">periph_conf.h</a>
+</li>
+<li>ADC_NUMOF
+: <a class="el" href="periph__conf_8h.html#a2f0c741db24aa2ccded869ba53f6a302">periph_conf.h</a>
+</li>
+<li>ADC_PRESCALER
+: <a class="el" href="periph__conf_8h.html#ab1d0703f6d84b37cbaa587a1a4515dd4">periph_conf.h</a>
+</li>
+<li>ADC_REF_DEFAULT
+: <a class="el" href="periph__conf_8h.html#a79a0008b0054fba5551f1a2f515cd21f">periph_conf.h</a>
+</li>
+<li>AT86RF215_PARAM_CS
+: <a class="el" href="board_8h.html#a7214d794b35dde0cfa89027a047e4e18">board.h</a>
+</li>
+<li>AT86RF215_PARAM_INT
+: <a class="el" href="board_8h.html#ac92d64d839a69c4e2219b01bb6fe7b44">board.h</a>
+</li>
+<li>AT86RF215_PARAM_RESET
+: <a class="el" href="board_8h.html#ab444639ac7bb9c4c50f19ded5dda9201">board.h</a>
+</li>
+<li>AT86RF215_PARAM_SPI
+: <a class="el" href="board_8h.html#ad4a9e6a8e2eff812e3a854d1959eaf08">board.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_b"></a>- b -</h3><ul>
+<li>board_init()
+: <a class="el" href="board_8h.html#a916f2adc2080b4fe88034086d107a8dc">board.h</a>
+</li>
+<li>BTN0_MODE
+: <a class="el" href="board_8h.html#a904884feea8e03c30c9a85ca6d7a8e5c">board.h</a>
+</li>
+<li>BTN0_PIN
+: <a class="el" href="board_8h.html#aab5c3eca54046333af52593b9e360270">board.h</a>
+</li>
+<li>BTN0_PORT
+: <a class="el" href="board_8h.html#a9a61388c9e491aec2e44cc03956bb299">board.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_d"></a>- d -</h3><ul>
+<li>DAC_CLOCK
+: <a class="el" href="periph__conf_8h.html#a3146b48b878b99f151de5239d3814793">periph_conf.h</a>
+</li>
+<li>DAC_VREF
+: <a class="el" href="periph__conf_8h.html#a5afd9690184542986af3376d1dd88957">periph_conf.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_i"></a>- i -</h3><ul>
+<li>i2c_config
+: <a class="el" href="periph__conf_8h.html#aa9dcbfbe7aa5baf027d834e5bca62a47">periph_conf.h</a>
+</li>
+<li>I2C_NUMOF
+: <a class="el" href="periph__conf_8h.html#abce62e16a6e3b3205801fed93c51692d">periph_conf.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_l"></a>- l -</h3><ul>
+<li>LED0_MASK
+: <a class="el" href="board_8h.html#abfabde35a3e8b7ab50146a5e223bfead">board.h</a>
+</li>
+<li>LED0_OFF
+: <a class="el" href="board_8h.html#aef2e39b9fd343d0e437fac0463f3e02d">board.h</a>
+</li>
+<li>LED0_ON
+: <a class="el" href="board_8h.html#a1e48dc02333bfc2e6ad3e5bd466eecd4">board.h</a>
+</li>
+<li>LED0_PIN
+: <a class="el" href="board_8h.html#a3fc522fda449d6edde717d6a857429cf">board.h</a>
+</li>
+<li>LED0_TOGGLE
+: <a class="el" href="board_8h.html#aebc6389533d9fc8dcbe4d2129a4d5a45">board.h</a>
+</li>
+<li>LED1_MASK
+: <a class="el" href="board_8h.html#a669ed6e073140d069b30442bf4c08842">board.h</a>
+</li>
+<li>LED1_OFF
+: <a class="el" href="board_8h.html#a343fd2d3ce61b84f88ddfaea32c67c58">board.h</a>
+</li>
+<li>LED1_ON
+: <a class="el" href="board_8h.html#aadd4c7ae0cd4e9bbb17f7055dd51fe08">board.h</a>
+</li>
+<li>LED1_PIN
+: <a class="el" href="board_8h.html#a318aa17e5d40e2132d2c7f6269ce7f51">board.h</a>
+</li>
+<li>LED1_TOGGLE
+: <a class="el" href="board_8h.html#a267fdbba1d750146b73da35c1731fd17">board.h</a>
+</li>
+<li>LED2_MASK
+: <a class="el" href="board_8h.html#a40f0f4b5ae7ea50d341105ddc740101e">board.h</a>
+</li>
+<li>LED2_OFF
+: <a class="el" href="board_8h.html#ac6468b1df4dfabcca0bb142044d6f976">board.h</a>
+</li>
+<li>LED2_ON
+: <a class="el" href="board_8h.html#ab55f588eb2c5177d3f7806e60d379fba">board.h</a>
+</li>
+<li>LED2_PIN
+: <a class="el" href="board_8h.html#af6f84078113b55354d20585131b386f7">board.h</a>
+</li>
+<li>LED2_TOGGLE
+: <a class="el" href="board_8h.html#acd16785845ce7004334b91a98707f8eb">board.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_p"></a>- p -</h3><ul>
+<li>PWM_0_EN
+: <a class="el" href="periph__conf_8h.html#ac0ac477af727daf8ed4f4157f37b4395">periph_conf.h</a>
+</li>
+<li>pwm_chan0_config
+: <a class="el" href="periph__conf_8h.html#ae505bf70258c000e0dd0f0ca6377db10">periph_conf.h</a>
+</li>
+<li>pwm_config
+: <a class="el" href="periph__conf_8h.html#a5177e7e865ac2ae63f7d56c8b3078707">periph_conf.h</a>
+</li>
+<li>PWM_NUMOF
+: <a class="el" href="periph__conf_8h.html#a44adbd579bb180f3cfe8ec78932eb7a1">periph_conf.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_s"></a>- s -</h3><ul>
+<li>sam_usbdev_config
+: <a class="el" href="periph__conf_8h.html#a57b47076d6e87497ff2901208cb484dc">periph_conf.h</a>
+</li>
+<li>saul_gpio_params
+: <a class="el" href="gpio__params_8h.html#a5442106fb6a31a0cc477a93d79701765">gpio_params.h</a>
+</li>
+<li>spi_config
+: <a class="el" href="periph__conf_8h.html#a873188d7292e07499dcde9674b1e849c">periph_conf.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_t"></a>- t -</h3><ul>
+<li>timer_config
+: <a class="el" href="periph__conf_8h.html#a8b28b4c69f45b3c82837e7f5269f00a9">periph_conf.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_u"></a>- u -</h3><ul>
+<li>uart_config
+: <a class="el" href="periph__conf_8h.html#a1643cfc64589407fb96b4cbf908689a5">periph_conf.h</a>
+</li>
+<li>UART_NUMOF
+: <a class="el" href="periph__conf_8h.html#a850405f2aaa352ad264346531f0e6230">periph_conf.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_x"></a>- x -</h3><ul>
+<li>XTIMER_CHAN
+: <a class="el" href="board_8h.html#a8b747b85d4d5f2e1be910cdbc72a01de">board.h</a>
+</li>
+<li>XTIMER_DEV
+: <a class="el" href="board_8h.html#a5e48bb301c732e044b08f336fb851d5e">board.h</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+    <ul>
+        <li class="footer">Generated on Wed Dec 1 2021 10:48:03 by <a href="http://www.doxygen.org/index.html">
+                   <img class="footer" src="doxygen.png" alt="doxygen"></a> 1.8.17</li>
+    </ul>
+</div>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap.js"></script>
+<script src="jquery.smartmenus.min.js"></script>
+<script src="jquery.smartmenus.bootstrap.min.js"></script>
+<script src="m4a-doxy.js"></script>
+</body>
+</html>
