@@ -1085,7 +1085,7 @@ HTML_EXTRA_FILES       = src/css/bootstrap.css \
                          src/css/fonts.css \
                          src/css/jquery.smartmenus.bootstrap.css \
                          src/css/m4a.css \
-                         src/favicon.png \
+                         src/media/favicon.png \
                          src/fonts/glyphicons-halflings-regular.eot \
                          src/fonts/glyphicons-halflings-regular.svg \
                          src/fonts/glyphicons-halflings-regular.ttf \
