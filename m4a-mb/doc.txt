@@ -36,10 +36,11 @@ AT86RF215 RF module.
 
 ### RF: Sub-GHz + 2.4 GHz
 
-|                    | AT86RF215            |
-|--------------------|----------------------|
-| Vendor             | Microchip            |
-|                    |                      |
-| Datasheet          | [Datasheet]()        |
-| Reference Manual   | [Reference Manual]() |
+|                    | AT86RF215                    |
+|--------------------|------------------------------|
+| Vendor             | Microchip                    |
+|                    |                              |
+| Datasheet          | [Datasheet](https://)        |
+| Reference Manual   | [Reference Manual](https://) |
+
 */
