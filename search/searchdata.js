@@ -5,8 +5,7 @@ var indexSectionsWithContent =
   2: "b",
   3: "aipstu",
   4: "abdilprstux",
-  5: "bm",
-  6: "b"
+  5: "bm"
 };
 
 var indexSectionNames =
@@ -16,8 +15,7 @@ var indexSectionNames =
   2: "functions",
   3: "variables",
   4: "defines",
-  5: "groups",
-  6: "pages"
+  5: "groups"
 };
 
 var indexSectionLabels =
@@ -27,7 +25,6 @@ var indexSectionLabels =
   2: "Functions",
   3: "Variables",
   4: "Macros",
-  5: "Modules",
-  6: "Pages"
+  5: "Modules"
 };
 

@@ -23,7 +23,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Mesh4all", "index.html", [
-    [ "boards", "index.html", null ],
+    [ "<a href=\"https://mesh4all.github.io/boards\">Boards</a>", "index.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
