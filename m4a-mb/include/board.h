@@ -39,11 +39,16 @@ extern "C"
  * @brief configuration for xTimer
  *
  */
-#define XTIMER_DEV TIMER_DEV(1) /*!< Timer Device */
-#define XTIMER_CHAN (0)         /*!< Timer Channel */
+#define XTIMER_DEV TIMER_DEV(1)                         /*!< Timer Device */
+#define XTIMER_CHAN (0)                                 /*!< Timer Channel */
 /** @} */
 
-#define LED_PORT PORT->Group[PB]
+/**
+ * @name LED PORT is PB
+ * @{
+ */
+#define LED_PORT PORT->Group[PB]                        /*!< Group is Port B */
+/** @} */
 
 /**
  * @name   LED D0 (orange) definition and handler
@@ -98,15 +103,9 @@ extern "C"
 /** @} */
 
 /**
- * @name Board init
- * @{
- */
-
-/**
  * @brief Initialize the board
  */
 void board_init(void);
-/** @}*/
 
 #ifdef __cplusplus
 }
