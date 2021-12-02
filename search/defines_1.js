@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['btn0_5fmode_74',['BTN0_MODE',['../board_8h.html#a904884feea8e03c30c9a85ca6d7a8e5c',1,'board.h']]],
-  ['btn0_5fpin_75',['BTN0_PIN',['../board_8h.html#aab5c3eca54046333af52593b9e360270',1,'board.h']]],
-  ['btn0_5fport_76',['BTN0_PORT',['../board_8h.html#a9a61388c9e491aec2e44cc03956bb299',1,'board.h']]]
+  ['btn0_5fmode_86',['BTN0_MODE',['../board_8h.html#a904884feea8e03c30c9a85ca6d7a8e5c',1,'board.h']]],
+  ['btn0_5fpin_87',['BTN0_PIN',['../board_8h.html#aab5c3eca54046333af52593b9e360270',1,'board.h']]],
+  ['btn0_5fport_88',['BTN0_PORT',['../board_8h.html#a9a61388c9e491aec2e44cc03956bb299',1,'board.h']]]
 ];

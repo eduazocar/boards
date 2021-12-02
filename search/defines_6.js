@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uart_5fnumof_97',['UART_NUMOF',['../periph__conf_8h.html#a850405f2aaa352ad264346531f0e6230',1,'periph_conf.h']]]
+  ['rtt_5ffrequency_112',['RTT_FREQUENCY',['../periph__conf_8h.html#afec7c948b8c70db3c9394fc3dc145a99',1,'periph_conf.h']]]
 ];
