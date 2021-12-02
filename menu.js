@@ -1,45 +1,50 @@
-function initMenu(relPath,searchEnabled,serverSide,searchPage,search) {
-    function makeTree(data,relPath,dropdown=false) {
-        var result='';
-        if ('children' in data) {
-            if (dropdown) {
-                result += '<ul class="dropdown-menu">';
-            }
-            for (var i in data.children) {
-                var active = '';
-                if (location.pathname.endsWith(relPath + data.children[i].url) ||
-                    (location.pathname.endsWith("/") &&
-                     (location.pathname + "index.html").endsWith(relPath + data.children[i].url))) {
-                    console.log(location.pathname)
-                    active = ' class="active"';
-                }
-                result += '<li'+active+'><a href="' + relPath+data.children[i].url+'">' +
-                          data.children[i].text;
-                if ('children' in data.children[i]) {
-                    result += '<span class="caret"></span>'
-                }
-                result += '</a>' + makeTree(data.children[i],relPath,true) + '</li>';
-            }
-            if (dropdown) {
-                result += '</ul>';
-            }
-        }
-        return result;
-    }
+/*
+ @licstart  The following is the entire license notice for the
+ JavaScript code in this file.
 
-    /* code adapted from original menu.js of Doxygen, but made
-     * bootstrap ready via
-     * http://vadikom.github.io/smartmenus/src/demo/bootstrap-navbar.html */
-    $('#riot-navlist').append(makeTree(menudata,relPath));
-    if (searchEnabled) {
-        $("#MSearchBox").remove();
-        if (serverSide) {
-            $('#riot-searchform').attr("id", "FSearchBox");
-            $('#FSearchBox').attr("action", searchPage);
-            $('#FSearchBox').attr("method", "get");
-            $('#FSearchBox div.form-group').append('<div id="MSearchBox" class="MSearchBoxInactive"><div class="input-group"><div class="input-group-addon"><span id="MSearchSelect" class="glyphicon glyphicon-search" aria-hidden="true"></span></div><input class="form-control" type="text" id="MSearchField" name="query" placeholder="'+search+'" value="'+search+'" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)"></form></div></div>');
-        } else {
-            $('#riot-searchform div.form-group').append('<div id="MSearchBox" class="MSearchBoxInactive"><div class="input-group"><div class="input-group-addon"><span id="MSearchSelect" class="glyphicon glyphicon-search" aria-hidden="true" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"></span></div><input class="form-control" type="text" id="MSearchField" placeholder="'+search+'" value="'+search+'" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event); modSearch();"/><a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><span id="search-reset" class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a></div></div>');
-        }
+ Copyright (C) 1997-2017 by Dimitri van Heesch
+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+ @licend  The above is the entire license notice
+ for the JavaScript code in this file
+ */
+function initMenu(relPath,searchEnabled,serverSide,searchPage,search) {
+  function makeTree(data,relPath) {
+    var result='';
+    if ('children' in data) {
+      result+='<ul>';
+      for (var i in data.children) {
+        result+='<li><a href="'+relPath+data.children[i].url+'">'+
+                                data.children[i].text+'</a>'+
+                                makeTree(data.children[i],relPath)+'</li>';
+      }
+      result+='</ul>';
     }
+    return result;
+  }
+
+  $('#main-nav').append(makeTree(menudata,relPath));
+  $('#main-nav').children(':first').addClass('sm sm-dox').attr('id','main-menu');
+  if (searchEnabled) {
+    if (serverSide) {
+      $('#main-menu').append('<li style="float:right"><div id="MSearchBox" class="MSearchBoxInactive"><div class="left"><form id="FSearchBox" action="'+relPath+searchPage+'" method="get"><img id="MSearchSelect" src="'+relPath+'search/mag.png" alt=""/><input type="text" id="MSearchField" name="query" value="'+search+'" size="20" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)"></form></div><div class="right"></div></div></li>');
+    } else {
+      $('#main-menu').append('<li style="float:right"><div id="MSearchBox" class="MSearchBoxInactive"><span class="left"><img id="MSearchSelect" src="'+relPath+'search/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt=""/><input type="text" id="MSearchField" value="'+search+'" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)"/></span><span class="right"><a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="'+relPath+'search/close.png" alt=""/></a></span></div></li>');
+    }
+  }
+  $('#main-menu').smartmenus();
 }
+/* @license-end */

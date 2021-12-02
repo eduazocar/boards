@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Main Page</title>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="jquery.min.js"></script>
-    <script src="jquery.powertip.min.js"></script>
-    <script src="jquery-ui.min.js"></script>
-    <script src="jquery.scrollTo.min.js"></script>
-    <script src="doxy-jquery.js"></script>
-    <script src="dynsections.js"></script>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="generator" content="Doxygen 1.8.17" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- BEGIN opengraph metadata -->
+    <meta property="og:title" content="Doxygen Awesome" />
+    <meta property="og:image"
+        content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+    <meta property="og:description"
+        content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+    <meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+    <!-- END opengraph metadata -->
+    <!-- BEGIN twitter metadata -->
+    <meta name="twitter:image:src"
+        content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+    <meta name="twitter:title" content="Doxygen Awesome" />
+    <meta name="twitter:description"
+        content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+    <!-- END twitter metadata -->
+    <title>Mesh4all: boards</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/svg+xml" href="logo.drawio.svg" />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
     <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -21,93 +33,30 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-    <!-- Bootstrap -->
-    <link href="doxygen.css" rel="stylesheet">
-    <link href="fonts.css" rel="stylesheet">
-    <link href="bootstrap.css" rel="stylesheet">
-    <link href="jquery.smartmenus.bootstrap.css" rel="stylesheet">
-    <link href="m4a.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script>
-        function displaySR() {
-            searchBox.Search();
-            var rhtml = (document.getElementById('MSearchResults').contentWindow.document.body.innerHTML).replace(/href=\"\.\.\//g, 'href="');
-            document.getElementById('MSearchResultsWindow').style.display = 'none';
-            document.getElementById('top').append(document.getElementById('MSearchSelectWindow'));
-            document.getElementById('top').append(document.getElementById('MSearchResultsWindow'));
-            document.getElementById('doc-content').innerHTML = rhtml;
-        }
-        function modSearch() {
-            if (!searchBox.doxySearch) {
-                searchBox.doxySearch = searchBox.Search
-                searchBox.Search = function () {
-                    this.doxySearch();
-                    var r = document.getElementById('MSearchResultsWindow'); console.log(r.style);
-                    if (parseInt(r.style.left) < 0) r.style.left = 0;
-                    var x = document.getElementById('MSearchResults');
-                    if (x.scrollWidth > window.screen.width) x.style.width = window.screen.width - 2 + 'px';
-                    var f = document.getElementById('riot-searchform');
-                    if (parseInt(r.style.top) < f.offsetTop + f.scrollHeight) r.style.top = f.offsetTop + f.scrollHeight + 'px';
-                }
-            }
-        }
-    </script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <div id="top">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" id="brand-logo" href="http://mesh4all.org"><img height="80px"
-                            src="m4a-logo.svg" /></a>
-                    <p class="navbar-text text-center visible-xs">Documentation</p>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-collapse">
-                    <p class="navbar-text navbar-left"><span id="projectbrief">Put here a short description</span></p>
-                    <ul id="riot-navlist" class="nav navbar-nav"></ul>
-                    <form id="riot-searchform" class="navbar-form navbar-left navbar-right" onsubmit="try{
-                        displaySR();
-                    }finally{
-                            return false;
-                    }">
-                        <div class="form-group">
-                            <div id="MSearchBox" class="MSearchBoxActive">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <span id="MSearchSelect" class="glyphicon glyphicon-search" aria-hidden="true"
-                                            onmouseover="return searchBox.OnSearchSelectShow()"
-                                            onmouseout="return searchBox.OnSearchSelectHide()"></span>
-                                    </div>
-                                    <input class="form-control" type="text" id="MSearchField" placeholder="Search"
-                                        accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)"
-                                        onblur="searchBox.OnSearchFieldFocus(false)"
-                                        onkeyup="searchBox.OnSearchFieldChange(event); modSearch();">
-                                    <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()">
-                                        <span id="search-reset" class="glyphicon glyphicon-remove-circle"
-                                            aria-hidden="true"></span>
-                                    </a>
-                                </div>
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+            <table cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr style="height: 56px;">
+                        <td id="projectlogo"><img alt="Logo" src="m4a-logo.svg" /></td>
+                        <td id="projectalign" style="padding-left: 0.5em;">
+                            <div id="projectname">Mesh4all
                             </div>
-                        </div>
-                    </form>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-    </div><!-- Generated by Doxygen 1.8.17 -->
+                            <div id="projectbrief">May the mesh with you</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end header part --><!-- Generated by Doxygen 1.8.17 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
@@ -154,23 +103,33 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Mesh4all supported boards Documentation</div>  </div>
+<div class="title">boards </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p>Definitions for supported boards </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.9.1-->
+<!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-    <ul>
-        <li class="footer">Generated on Wed Dec 1 2021 11:20:31 by <a href="http://www.doxygen.org/index.html">
-                   <img class="footer" src="doxygen.png" alt="doxygen"></a> 1.8.17</li>
-    </ul>
+  <ul>
+    <li class="footer">Generated on Thu Dec 2 2021 11:09:44 for Mesh4all by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
 </div>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="bootstrap.js"></script>
-<script src="jquery.smartmenus.min.js"></script>
-<script src="jquery.smartmenus.bootstrap.min.js"></script>
-<script src="m4a-doxy.js"></script>
+<script>
+  $(function() {
+     toggleButton = document.createElement('doxygen-awesome-dark-mode-toggle')
+     toggleButton.title = "Toggle Light/Dark Mode"
+     $(document).ready(function(){
+       document.getElementById("MSearchBox").parentNode.appendChild(toggleButton)
+     })
+     $(window).resize(function(){
+       document.getElementById("MSearchBox").parentNode.appendChild(toggleButton)
+     })
+   })
+</script>
 </body>
 </html>

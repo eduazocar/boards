@@ -22,7 +22,8 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "Mesh4all supported boards", "index.html", [
+  [ "Mesh4all", "index.html", [
+    [ "boards", "index.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
