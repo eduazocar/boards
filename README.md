@@ -1,3 +1,4 @@
-# [Boards](https://mesh4all.github.io/boards)
+# Boards
 
-Definitions for supported boards
+Definitions for [supported boards](https://mesh4all.github.io/boards)
+
