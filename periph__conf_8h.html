@@ -164,6 +164,26 @@ Variables</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Clock settings</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp9e64c2990102bbf34552a52e5c5d4774"></a>There are three choices for selection of CORECLOCK:</p>
+<ul>
+<li>Usage of the Phase-Locked Loop (PLL) fed by the internal 8MHz oscillator divided by 8</li>
+<li>Usage of the 48 MHz DFLL fed by external oscillator running at 32 kHz</li>
+<li>Usage of the internal 8MHz oscillator directly, divided by N if needed</li>
+</ul>
+<p>The PLL option allows for the usage of a wider frequency range and a more <b>stable clock with less jitter</b>. This is why this <b>option is default</b>.</p>
+<p>The target frequency is computed from the PLL multiplier and the PLL divisor. Use the following formula to compute your values:</p>
+<p><b>CORECLOCK = ((PLL_MUL + 1) * 1MHz) / PLL_DIV</b></p>
+<dl class="section note"><dt>Note</dt><dd>The PLL circuit does not run with less than 32MHz while the maximum PLL frequency is 96MHz. So PLL_MULL must be between 31 and 95!</dd></dl>
+<p>The internal Oscillator used directly can lead to a slightly better power efficiency to the cost of a less stable clock. Use this option when you know what you are doing! The actual core frequency is adjusted as follows:</p>
+<p><b>CORECLOCK = 8MHz / DIV</b></p>
+<dl class="section note"><dt>Note</dt><dd>A core clock frequency below 1MHz is not recommended</dd></dl>
+<p>Default parameters are the following:</p>
+<ul>
+<li>CLOCK_USE_PLL = True</li>
+<li>MUL = 47U</li>
+<li>DIV = 1 </li>
+</ul>
+</td></tr>
 <tr class="memitem:a8dc6f59497ff407016c464fb10f9ece8"><td class="memItemLeft" align="right" valign="top"><a id="a8dc6f59497ff407016c464fb10f9ece8"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="periph__conf_8h.html#a8dc6f59497ff407016c464fb10f9ece8">CLOCK_USE_PLL</a>&#160;&#160;&#160;(1)</td></tr>
 <tr class="memdesc:a8dc6f59497ff407016c464fb10f9ece8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Phase-Locked Loop [PLL] as reference clock: True. <br /></td></tr>
@@ -172,19 +192,18 @@ Clock settings</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="periph__conf_8h.html#a4d657908106c0cfbfc9c140c6d605902">CLOCK_USE_XOSC32_DFLL</a>&#160;&#160;&#160;(0)</td></tr>
 <tr class="memdesc:a4d657908106c0cfbfc9c140c6d605902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use External OScillator [XOSC32] as reference clock: False. <br /></td></tr>
 <tr class="separator:a4d657908106c0cfbfc9c140c6d605902"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac34b0d5e6437c8411af67230128a7ba0"><td class="memItemLeft" align="right" valign="top"><a id="ac34b0d5e6437c8411af67230128a7ba0"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="periph__conf_8h.html#ac34b0d5e6437c8411af67230128a7ba0">GEN2_ULP32K</a>&#160;&#160;&#160;(0)</td></tr>
-<tr class="memdesc:ac34b0d5e6437c8411af67230128a7ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the internal Ultra Low Power oscillator [ULP32K] as reference clock: False. <br /></td></tr>
+<tr class="memitem:ac34b0d5e6437c8411af67230128a7ba0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="periph__conf_8h.html#ac34b0d5e6437c8411af67230128a7ba0">GEN2_ULP32K</a>&#160;&#160;&#160;(0)</td></tr>
+<tr class="memdesc:ac34b0d5e6437c8411af67230128a7ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">OSCULP32K is factory calibrated to be around 32.768kHz but this values can be of by a couple off % points, so prefer XOSC32K as default configuration.  <a href="periph__conf_8h.html#ac34b0d5e6437c8411af67230128a7ba0">More...</a><br /></td></tr>
 <tr class="separator:ac34b0d5e6437c8411af67230128a7ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a902a38d6dfe9bc80271132ace0d1ca69"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="periph__conf_8h.html#a902a38d6dfe9bc80271132ace0d1ca69">CLOCK_PLL_MUL</a>&#160;&#160;&#160;(47U)</td></tr>
-<tr class="memdesc:a902a38d6dfe9bc80271132ace0d1ca69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set [MUL]TIPLICATOR to 47U if we are using [PLL].  <a href="periph__conf_8h.html#a902a38d6dfe9bc80271132ace0d1ca69">More...</a><br /></td></tr>
+<tr class="memdesc:a902a38d6dfe9bc80271132ace0d1ca69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set [MUL] to 47U if we are using [PLL].  <a href="periph__conf_8h.html#a902a38d6dfe9bc80271132ace0d1ca69">More...</a><br /></td></tr>
 <tr class="separator:a902a38d6dfe9bc80271132ace0d1ca69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7c20feb5ba29cd3c6479fa74db3bbb0"><td class="memItemLeft" align="right" valign="top"><a id="ad7c20feb5ba29cd3c6479fa74db3bbb0"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="periph__conf_8h.html#ad7c20feb5ba29cd3c6479fa74db3bbb0">CLOCK_PLL_DIV</a>&#160;&#160;&#160;(1U)</td></tr>
-<tr class="memdesc:ad7c20feb5ba29cd3c6479fa74db3bbb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clock [DIV]ISION 1U if we are using [PLL] This don't need to be changed by now, but it can be adjusted for our requirements. <br /></td></tr>
+<tr class="memdesc:ad7c20feb5ba29cd3c6479fa74db3bbb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clock [DIV] 1U if we are using [PLL] This don't need to be changed by now, but it can be adjusted for our requirements. <br /></td></tr>
 <tr class="separator:ad7c20feb5ba29cd3c6479fa74db3bbb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc465f12242e68f6c3695caa3ba0a169"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="periph__conf_8h.html#afc465f12242e68f6c3695caa3ba0a169">CLOCK_CORECLOCK</a>&#160;&#160;&#160;(((<a class="el" href="periph__conf_8h.html#a902a38d6dfe9bc80271132ace0d1ca69">CLOCK_PLL_MUL</a> + 1) * 1000000U) / <a class="el" href="periph__conf_8h.html#ad7c20feb5ba29cd3c6479fa74db3bbb0">CLOCK_PLL_DIV</a>)</td></tr>
-<tr class="memdesc:afc465f12242e68f6c3695caa3ba0a169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition for core clock if we are using [PLL].  <a href="periph__conf_8h.html#afc465f12242e68f6c3695caa3ba0a169">More...</a><br /></td></tr>
+<tr class="memdesc:afc465f12242e68f6c3695caa3ba0a169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition for core clock if we are using [PLL] as reference.  <a href="periph__conf_8h.html#afc465f12242e68f6c3695caa3ba0a169">More...</a><br /></td></tr>
 <tr class="separator:afc465f12242e68f6c3695caa3ba0a169"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
@@ -279,7 +298,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Gain Factor: 1x </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00402">402</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00433">433</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -296,7 +315,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Neg. Input: GND </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00401">401</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00432">432</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -313,7 +332,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of ADC channels is 6 </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00435">435</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00466">466</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -330,7 +349,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Prescaler: DIV 512 </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00400">400</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00431">431</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -347,7 +366,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Reference: Internal 1.0 Volt </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00403">403</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00434">434</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -363,10 +382,10 @@ DAC Settings</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition for core clock if we are using [PLL]. </p>
-<dl class="section warning"><dt>Warning</dt><dd>DO NOT EDIT; Generate the actual used core clock frequency </dd></dl>
+<p>Definition for core clock if we are using [PLL] as reference. </p>
+<dl class="section warning"><dt>Warning</dt><dd>DO NOT EDIT; Generate the actual used core clock frequency. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00071">71</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00102">102</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -382,10 +401,10 @@ DAC Settings</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set [MUL]TIPLICATOR to 47U if we are using [PLL]. </p>
-<dl class="section warning"><dt>Warning</dt><dd>DO NOT EDIT; [MUL] should be between 31 and 95, both numbers included </dd></dl>
+<p>Set [MUL] to 47U if we are using [PLL]. </p>
+<dl class="section warning"><dt>Warning</dt><dd>DO NOT EDIT; [MUL] should be between 31 and 95. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00061">61</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00092">92</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -402,7 +421,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Uses 1 MHz clock </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00442">442</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00473">473</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -419,7 +438,26 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Select VCC as reference </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00443">443</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00474">474</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+
+</div>
+</div>
+<a id="ac34b0d5e6437c8411af67230128a7ba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac34b0d5e6437c8411af67230128a7ba0">&#9670;&nbsp;</a></span>GEN2_ULP32K</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GEN2_ULP32K&#160;&#160;&#160;(0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>OSCULP32K is factory calibrated to be around 32.768kHz but this values can be of by a couple off % points, so prefer XOSC32K as default configuration. </p>
+<p>0: use XOSC32K (always 32.768kHz) to clock GCLK2 1: use OSCULP32K factory calibrated (~32.768kHz) to clock GCLK2 </p>
+
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00085">85</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -436,7 +474,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of I2C available </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00384">384</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00415">415</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -453,7 +491,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>PWM 0 is enabled </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00213">213</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00244">244</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -470,7 +508,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>PWM 1 is disabled </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00214">214</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00245">245</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -487,7 +525,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>PWM 2 is disabled </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00215">215</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00246">246</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -504,7 +542,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of PWM channels, by default only chan0 </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00280">280</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00311">311</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -521,7 +559,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>RTT is set to 32768 </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00392">392</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00423">423</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -538,7 +576,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>3 SPI are available </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00355">355</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00386">386</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -555,7 +593,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Timer 0 ISR uses tc3 </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00129">129</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00160">160</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -572,7 +610,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Max. Value </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00128">128</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00159">159</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -589,7 +627,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Timer 1 ISR uses tc4 </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00130">130</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00161">161</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -606,7 +644,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of timers available, default: 2 </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00131">131</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00162">162</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -623,7 +661,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>UART 0 uses isr_sercom3 </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00203">203</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00234">234</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -640,7 +678,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>UART 1 uses isr_sercom4 </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00204">204</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00235">235</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -657,7 +695,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>UART 1 uses isr_sercom5 </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00205">205</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00236">236</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -674,7 +712,7 @@ DAC Settings</h2></td></tr>
 </div><div class="memdoc">
 <p>Number of available UART ports </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00206">206</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00237">237</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -729,7 +767,7 @@ Pinout</h3>
 <td class="markdownTableBodyCenter">5 </td><td class="markdownTableBodyNone">PA3  </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00422">422</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00453">453</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -776,7 +814,7 @@ Pinout</h3>
 <td class="markdownTableBodyNone">I2C_0 </td><td class="markdownTableBodyNone">SDA </td><td class="markdownTableBodyNone">PA8  </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00368">368</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00399">399</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -825,7 +863,7 @@ Pinout</h3>
 </table>
 <p>Settings for PWM channel 1 if it's enabled </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00237">237</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00268">268</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -862,7 +900,7 @@ Pinout</h3>
 </div><!-- fragment -->
 <p>Setings for PWM peripheral. </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00264">264</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00295">295</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -907,7 +945,7 @@ Pinout</h3>
 <td class="markdownTableBodyNone">D+ </td><td class="markdownTableBodyNone">PA25  </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00456">456</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00487">487</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -957,7 +995,7 @@ SPI Pinout</h3>
 <td class="markdownTableBodyNone">clk </td><td class="markdownTableBodyNone">PB23  </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00300">300</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00331">331</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -1009,7 +1047,7 @@ SPI Pinout</h3>
 </div><!-- fragment -->
 <p>Timer peripheral configuration. </p>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00097">97</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00128">128</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
@@ -1065,19 +1103,19 @@ Pinout</h2>
 <td class="markdownTableBodyNone">CTS </td><td class="markdownTableBodyNone">Undefined  </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00154">154</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="periph__conf_8h_source.html#l00185">185</a> of file <a class="el" href="periph__conf_8h_source.html">periph_conf.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aperiph__conf_8h_html_ae505bf70258c000e0dd0f0ca6377db10"><div class="ttname"><a href="periph__conf_8h.html#ae505bf70258c000e0dd0f0ca6377db10">pwm_chan0_config</a></div><div class="ttdeci">static const pwm_conf_chan_t pwm_chan0_config[]</div><div class="ttdoc">By default only channel 0 is enabled, PWM 1 and 2 can be enabled by setting PWM_1_EN and/or PWM_2_EN ...</div><div class="ttdef"><b>Definition:</b> <a href="periph__conf_8h_source.html#l00237">periph_conf.h:237</a></div></div>
+<div class="ttc" id="aperiph__conf_8h_html_ae505bf70258c000e0dd0f0ca6377db10"><div class="ttname"><a href="periph__conf_8h.html#ae505bf70258c000e0dd0f0ca6377db10">pwm_chan0_config</a></div><div class="ttdeci">static const pwm_conf_chan_t pwm_chan0_config[]</div><div class="ttdoc">By default only channel 0 is enabled, PWM 1 and 2 can be enabled by setting PWM_1_EN and/or PWM_2_EN ...</div><div class="ttdef"><b>Definition:</b> <a href="periph__conf_8h_source.html#l00268">periph_conf.h:268</a></div></div>
 <!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_37c3374061e37723abb75be9a4454748.html">m4a-mb</a></li><li class="navelem"><a class="el" href="dir_a641ddd3d06421c898b55389fbe0082a.html">include</a></li><li class="navelem"><a class="el" href="periph__conf_8h.html">periph_conf.h</a></li>
-    <li class="footer">Generated on Fri Dec 3 2021 12:34:59 for Mesh4all by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Generated on Fri Dec 3 2021 20:32:41 for Mesh4all by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>
 <script>
