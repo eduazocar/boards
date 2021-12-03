@@ -1,17 +1,11 @@
 /*
- * Copyright (c) 2021 Mesh4all <mesh4all.org>
+ * Copyright (C) 2017 Travis Griggs <travisgriggs@gmail.com>
+ * Copyright (C) 2017 Dan Evans <photonthunder@gmail.com>
+ * Copyright (C) 2021 Mesh4all <mesh4all.org>
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This file is subject to the terms and conditions of the GNU Lesser
+ * General Public License v2.1. See the file LICENSE in the top level
+ * directory for more details.
  */
 
 /**
@@ -35,6 +29,38 @@ extern "C"
 
 /**
  * @name Clock settings
+ * 
+ * There are three choices for selection of CORECLOCK:
+ * 
+ * - Usage of the Phase-Locked Loop (PLL) fed by the internal 8MHz oscillator divided by 8
+ * - Usage of the 48 MHz DFLL fed by external oscillator running at 32 kHz
+ * - Usage of the internal 8MHz oscillator directly, divided by N if needed
+ * 
+ * The PLL option allows for the usage of a wider frequency range and a more
+ * **stable clock with less jitter**. This is why this **option is default**.
+ * 
+ * The target frequency is computed from the PLL multiplier and the PLL divisor.
+ * Use the following formula to compute your values:
+ * 
+ * **CORECLOCK = ((PLL_MUL + 1) * 1MHz) / PLL_DIV**
+ * 
+ * @note The PLL circuit does not run with less than 32MHz while the maximum PLL
+ *          frequency is 96MHz. So PLL_MULL must be between 31 and 95!
+ * 
+ * The internal Oscillator used directly can lead to a slightly better power
+ * efficiency to the cost of a less stable clock. Use this option when you know
+ * what you are doing! The actual core frequency is adjusted as follows:
+ *
+ * **CORECLOCK = 8MHz / DIV**
+ *
+ * @note A core clock frequency below 1MHz is not recommended
+ * 
+ * Default parameters are the following:
+ * 
+ * - CLOCK_USE_PLL = True
+ * - MUL = 47U
+ * - DIV = 1
+ * 
  * @{
  */
 
@@ -49,24 +75,29 @@ extern "C"
 #define CLOCK_USE_XOSC32_DFLL (0)
 
 /**
- * @brief Use the internal Ultra Low Power oscillator [ULP32K] as reference clock: False
+ * @brief OSCULP32K is factory calibrated to be around 32.768kHz but this values can
+ * be of by a couple off % points, so prefer XOSC32K as default configuration.
+ * 
+ * 0: use XOSC32K (always 32.768kHz) to clock GCLK2
+ * 1: use OSCULP32K factory calibrated (~32.768kHz) to clock GCLK2
+ */
  */
 #define GEN2_ULP32K (0)
 
 #if CLOCK_USE_PLL
 /**
- * @brief Set [MUL]TIPLICATOR to 47U if we are using [PLL]
- * @warning DO NOT EDIT; [MUL] should be between 31 and 95, both numbers included
+ * @brief Set [MUL] to 47U if we are using [PLL]
+ * @warning DO NOT EDIT; [MUL] should be between 31 and 95.
  */
 #define CLOCK_PLL_MUL (47U)
 /**
- * @brief Clock [DIV]ISION 1U if we are using [PLL]
+ * @brief Clock [DIV] 1U if we are using [PLL]
  * This don't need to be changed by now, but it can be adjusted for our requirements
  */
 #define CLOCK_PLL_DIV (1U)
 /**
- * @brief Definition for core clock if we are using [PLL]
- * @warning DO NOT EDIT; Generate the actual used core clock frequency
+ * @brief Definition for core clock if we are using [PLL] as reference.
+ * @warning DO NOT EDIT; Generate the actual used core clock frequency.
  */
 #define CLOCK_CORECLOCK (((CLOCK_PLL_MUL + 1) * 1000000U) / CLOCK_PLL_DIV)
 #elif CLOCK_USE_XOSC32_DFLL
@@ -76,14 +107,14 @@ extern "C"
  */
 #define CLOCK_CORECLOCK (48000000U)
 /**
- * @brief External oscillator if we are using XOSC32
- * @warning DO NOT EDIT; 32 kHz ext. oscillator
+ * @brief External oscillator if we are using XOSC32 as reference.
+ * @warning DO NOT EDIT; 32 kHz external oscillator
  */
 #define CLOCK_XOSC32K (32768UL)
 #define CLOCK_8MHZ (1)
 #else
 /**
- * @brief Clock [DIV]ISION if we are using the internal [ULP] oscillator
+ * @brief Clock [DIV] if we are using any other clock conf.
  * @warning DO NOT EDIT
  */
 #define CLOCK_DIV (1U)
