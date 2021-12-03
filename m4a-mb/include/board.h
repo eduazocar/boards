@@ -36,8 +36,6 @@ extern "C"
 /**
  * @name   xTimer configuration
  * @{
- * @brief configuration for xTimer
- *
  */
 #define XTIMER_DEV TIMER_DEV(1)                         /*!< Timer Device */
 #define XTIMER_CHAN (0)                                 /*!< Timer Channel */

@@ -32,11 +32,7 @@ extern "C"
 #endif
 
 /**
- * @name Saul GPIO params
- * @{
- */
-/**
- * ## Saul Setings
+ * ## Saul GPIO params
  *
  * @brief Saul Settings
  * @see [[S]ensor [A]ctuator [U]ber [L]ayer](https://doc.riot-os.org/group__drivers__saul.html)
@@ -77,7 +73,6 @@ static const saul_gpio_params_t saul_gpio_params[] = {
         .mode = BTN0_MODE,
     },
 };
-/** @} */
 
 #ifdef __cplusplus
 }

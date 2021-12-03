@@ -56,6 +56,7 @@ extern "C"
 /**
  * @brief Definition for core clock if we are using [PLL]
  * @warning DO NOT EDIT; Generate the actual used core clock frequency
+ * 
  */
 #define CLOCK_CORECLOCK (((CLOCK_PLL_MUL + 1) * 1000000U) / CLOCK_PLL_DIV)
 #elif CLOCK_USE_XOSC32_DFLL
