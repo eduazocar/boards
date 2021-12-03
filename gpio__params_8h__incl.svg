@@ -66,7 +66,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="periph__conf_8h.html" target="_top" xlink:title="Peripheral MCU configuration for m4a_mb.">
+<g id="a_node4"><a xlink:href="periph__conf_8h.html" target="_top" xlink:title="Peripheral MCU configuration for m4a_mb board.">
 <polygon fill="none" stroke="black" points="53.5,-58.5 53.5,-79.5 150.5,-79.5 150.5,-58.5 53.5,-58.5"/>
 <text text-anchor="middle" x="102" y="-65.9" font-family="Helvetica,sans-Serif" font-size="12.00">periph_conf.h</text>
 </a>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['i2c_5fconfig_20',['i2c_config',['../periph__conf_8h.html#aa9dcbfbe7aa5baf027d834e5bca62a47',1,'periph_conf.h']]],
-  ['i2c_5fnumof_21',['I2C_NUMOF',['../periph__conf_8h.html#abce62e16a6e3b3205801fed93c51692d',1,'periph_conf.h']]]
+  ['gen2_5fulp32k_24',['GEN2_ULP32K',['../periph__conf_8h.html#ac34b0d5e6437c8411af67230128a7ba0',1,'periph_conf.h']]],
+  ['gpio_5fparams_2eh_25',['gpio_params.h',['../gpio__params_8h.html',1,'']]]
 ];

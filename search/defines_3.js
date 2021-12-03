@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['i2c_5fnumof_91',['I2C_NUMOF',['../periph__conf_8h.html#abce62e16a6e3b3205801fed93c51692d',1,'periph_conf.h']]]
+  ['dac_5fclock_100',['DAC_CLOCK',['../periph__conf_8h.html#a3146b48b878b99f151de5239d3814793',1,'periph_conf.h']]],
+  ['dac_5fvref_101',['DAC_VREF',['../periph__conf_8h.html#a5afd9690184542986af3376d1dd88957',1,'periph_conf.h']]]
 ];
