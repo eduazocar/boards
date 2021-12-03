@@ -15,10 +15,10 @@
  */
 
 /**
- * @ingroup         boards_m4a-mb
+ * @ingroup     boards_m4a-mb
  *@{
- * @file
- * @brief           Peripheral MCU configuration for m4a_mb
+ * @file        periph_conf.h
+ * @brief       Peripheral MCU configuration for **m4a_mb** board
  */
 
 #ifndef PERIPH_CONF_H
@@ -36,43 +36,52 @@ extern "C"
 /**
  * @name Clock settings
  * @{
- * @brief   External oscillator and clock configuration
- *
  */
-#define CLOCK_USE_PLL (1)
-#define CLOCK_USE_XOSC32_DFLL (0)
-
-#define GEN2_ULP32K (0)
+#define CLOCK_USE_PLL (1)               /*!< Use PLL as clock: True */
+#define CLOCK_USE_XOSC32_DFLL (0)       /*!< Use XOSC32 as clock: False */
+#define GEN2_ULP32K (0)                 /*!< Use ULP32K as clock: False */
 
 #if CLOCK_USE_PLL
-/* DO NOT EDIT; [PLL] output frequency */
-/* [MUL] should be between 31 and 95, both numbers included */
+/**
+ * @brief [PLL] output frequency 47U if we are using [PLL]
+ * @warning DO NOT EDIT
+ * @warning [MUL] should be between 31 and 95, both numbers included
+ */
 #define CLOCK_PLL_MUL (47U)
-/* [DIV] don't need to be changed by now but it can be adjusted */
-/* for our requirements */
+/**
+ * @brief Clock [DIV] 1U if we are using [PLL]
+ * This don't need to be changed by now, but it can be adjusted for our requirements
+ */
 #define CLOCK_PLL_DIV (1U)
-/* DO NOT EDIT; Generate the actual used core clock frequency */
+/**
+ * @brief Definition for core clock if we are using [PLL]
+ * @warning DO NOT EDIT; Generate the actual used core clock frequency
+ */
 #define CLOCK_CORECLOCK (((CLOCK_PLL_MUL + 1) * 1000000U) / CLOCK_PLL_DIV)
 #elif CLOCK_USE_XOSC32_DFLL
-/* DO NOT EDIT; 48 MHz core clock */
+/**
+ * @brief Core Clock set to 48 MHz if we are using XOSC32
+ * @warning DO NOT EDIT; 48 MHz core clock
+ */
 #define CLOCK_CORECLOCK (48000000U)
-/* DO NOT EDIT; 32 kHz ext. oscillator */
+/**
+ * @brief External oscillator if we are using XOSC32
+ * @warning DO NOT EDIT; 32 kHz ext. oscillator
+ */
 #define CLOCK_XOSC32K (32768UL)
 #define CLOCK_8MHZ (1)
 #else
-/* DO NOT EDIT */
+/**
+ * @brief Clock [DIV]
+ * @warning DO NOT EDIT
+ */
 #define CLOCK_DIV (1U)
 #define CLOCK_CORECLOCK (8000000 / CLOCK_DIV)
 #endif
 /** @} */
 
 /**
- * @name Timers
- * @{
- */
-
-/**
- * @brief   Timer peripheral configuration
+ * @brief Timer peripheral configuration
  */
 static const tc32_conf_t timer_config[] = {
     {
@@ -101,20 +110,15 @@ static const tc32_conf_t timer_config[] = {
     },
 };
 
-#define TIMER_0_MAX_VALUE 0xffff                /*!< -- */
-#define TIMER_0_ISR isr_tc3                     /*!< Timer 0 ISR uses tc3 */
-#define TIMER_1_ISR isr_tc4                     /*!< Timer 1 ISR uses tc4 */
-
 /**
- * @brief Number of timers available, default: 2
- */
-#define TIMER_NUMOF ARRAY_SIZE(timer_config)
-/** @} */
-
-/**
- * @name UART configuration
+ * @name Timers
  * @{
  */
+#define TIMER_0_MAX_VALUE 0xffff                /*!< Max. Value */
+#define TIMER_0_ISR isr_tc3                     /*!< Timer 0 ISR uses tc3 */
+#define TIMER_1_ISR isr_tc4                     /*!< Timer 1 ISR uses tc4 */
+#define TIMER_NUMOF ARRAY_SIZE(timer_config)    /*!< Number of timers available, default: 2 */
+/** @} */
 
 /**
  * @brief Settings for UART
@@ -181,10 +185,13 @@ static const uart_conf_t uart_config[] = {
     },
 };
 
+/**
+ * @name UART configuration
+ * @{
+ */
 #define UART_0_ISR isr_sercom3              /*!< UART 0 uses isr_sercom3 */
 #define UART_1_ISR isr_sercom4              /*!< UART 1 uses isr_sercom4 */
 #define UART_2_ISR isr_sercom5              /*!< UART 1 uses isr_sercom5 */
-
 #define UART_NUMOF ARRAY_SIZE(uart_config)  /*!< Number of available UART ports */
 /** @} */
 
@@ -195,17 +202,26 @@ static const uart_conf_t uart_config[] = {
 #define PWM_0_EN 1              /*!< PWM 0 is enabled */
 #define PWM_1_EN 0              /*!< PWM 1 is disabled */
 #define PWM_2_EN 0              /*!< PWM 2 is disabled */
+/** @} */
 
+/**
+ * @brief By default only channel 0 is enabled, PWM 1 and 2 can be enabled
+ * by setting **PWM_1_EN** and/or **PWM_2_EN** to 1
+ *
+ * ### Pinout
+ *
+ * | channel | GPIO pin | TCC | Default stat. |
+ * |:-------:|----------|:---:|---------------|
+ * | 0       | PA12     | 0   | Enabled       |
+ * | ^       | PA13     | 1   | Enabled       |
+ * | 1       | PB12     | 0   | Disabled      |
+ * | ^       | PB13     | 1   | Disabled      |
+ * | 2       | PB02     | 0   | Disabled      |
+ * | ^       | PB03     | 1   | Disabled      |
+ */
 #if PWM_0_EN
 /**
- * @brief By default only channel 0 is enabled
- *
- * ## Pinout
- *
- * | channel | pin  | TCC |
- * |:-------:|------|-----|
- * | 0       | PA12 | 0   |
- * | ^       | PA13 | 1   |
+ * @brief Settings for PWM channel 1 if it's enabled
  */
 static const pwm_conf_chan_t pwm_chan0_config[] = {
     {GPIO_PIN(PA, 12), GPIO_MUX_E, 0},
@@ -214,14 +230,7 @@ static const pwm_conf_chan_t pwm_chan0_config[] = {
 #endif
 #if PWM_1_EN
 /**
- * @brief Settings for PWM channel 1
- *
- * ## Pinout
- *
- * | channel | pin  | TCC |
- * |:-------:|------|-----|
- * | 1       | PB12 | 0   |
- * | ^       | PB13 | 1   |
+ * @brief Settings for PWM channel 1 if it's enabled
  */
 static const pwm_conf_chan_t pwm_chan1_config[] = {
     {GPIO_PIN(PB, 12), GPIO_MUX_E, 0},
@@ -230,26 +239,13 @@ static const pwm_conf_chan_t pwm_chan1_config[] = {
 #endif
 #if PWM_2_EN
 /**
- * @brief Settings for PWM channel 2
- *
- * ## Pinout
- *
- * | channel | pin  | TCC |
- * |:-------:|------|-----|
- * | 1       | PB02 | 0   |
- * | ^       | PB03 | 1   |
+ * @brief Settings for PWM channel 2 if it's enabled
  */
 static const pwm_conf_chan_t pwm_chan2_config[] = {
     {GPIO_PIN(PB, 02), GPIO_MUX_E, 0},
     {GPIO_PIN(PB, 03), GPIO_MUX_E, 1},
 };
 #endif
-/** @} */
-
-/**
- * @name PWM config
- * @{
- */
 
 /**
  * @brief Setings for PWM peripheral
@@ -267,15 +263,16 @@ static const pwm_conf_t pwm_config[] = {
 };
 
 /**
- * @brief Number of PWM channels, by default only chan0
+ * @name PWM config
+ * @{
  */
-#define PWM_NUMOF ARRAY_SIZE(pwm_config)
+#define PWM_NUMOF ARRAY_SIZE(pwm_config)        /*!< Number of PWM channels, by default only chan0 */
 /** @} */
 
 /**
  * @brief SPI configuration
  *
- * ## SPI Pinout
+ * ### SPI Pinout
  *
  * | SPI | name | pin  |
  * |:---:|------|------|
@@ -349,9 +346,9 @@ static const spi_conf_t spi_config[] = {
 
 /**
  * @brief I2C configuration
- * 
- * ## Pinout
- * 
+ *
+ * ### Pinout
+ *
  * | device | name | pin |
  * |--------|------|-----|
  * | I2C_0  | SCL  | PA9 |
@@ -398,7 +395,7 @@ static const i2c_conf_t i2c_config[] = {
 /**
  * @brief ADC channels
  *
- * ## [A]nalog-to-[D]igital [C]onverter
+ * ## [A]nalog-to-[D]igital [C]onverters
  *
  * ### Pinout
  *
