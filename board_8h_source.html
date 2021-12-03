@@ -135,39 +135,39 @@ $(document).ready(function(){initNavTree('board_8h_source.html',''); initResizab
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="board_8h.html#a5e48bb301c732e044b08f336fb851d5e">   42</a></span>&#160;<span class="preprocessor">#define XTIMER_DEV TIMER_DEV(1)                         </span></div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="board_8h.html#a8b747b85d4d5f2e1be910cdbc72a01de">   43</a></span>&#160;<span class="preprocessor">#define XTIMER_CHAN (0)                                 </span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="board_8h.html#a663daa01e565aee93c6f20c5845b90b4">   50</a></span>&#160;<span class="preprocessor">#define LED_PORT PORT-&gt;Group[PB]                        </span></div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="board_8h.html#a3fc522fda449d6edde717d6a857429cf">   57</a></span>&#160;<span class="preprocessor">#define LED0_PIN GPIO_PIN(PB, 30)                       </span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="board_8h.html#abfabde35a3e8b7ab50146a5e223bfead">   58</a></span>&#160;<span class="preprocessor">#define LED0_MASK (1 &lt;&lt; 30)                             </span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="board_8h.html#a1e48dc02333bfc2e6ad3e5bd466eecd4">   59</a></span>&#160;<span class="preprocessor">#define LED0_ON (LED_PORT.OUTCLR.reg = LED0_MASK)       </span></div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="board_8h.html#aef2e39b9fd343d0e437fac0463f3e02d">   60</a></span>&#160;<span class="preprocessor">#define LED0_OFF (LED_PORT.OUTSET.reg = LED0_MASK)      </span></div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="board_8h.html#aebc6389533d9fc8dcbe4d2129a4d5a45">   61</a></span>&#160;<span class="preprocessor">#define LED0_TOGGLE (LED_PORT.OUTTGL.reg = LED0_MASK)   </span></div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="board_8h.html#a318aa17e5d40e2132d2c7f6269ce7f51">   68</a></span>&#160;<span class="preprocessor">#define LED1_PIN GPIO_PIN(PB, 7)                        </span></div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="board_8h.html#a669ed6e073140d069b30442bf4c08842">   69</a></span>&#160;<span class="preprocessor">#define LED1_MASK (1 &lt;&lt; 7)                              </span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="board_8h.html#aadd4c7ae0cd4e9bbb17f7055dd51fe08">   70</a></span>&#160;<span class="preprocessor">#define LED1_ON (LED_PORT.OUTCLR.reg = LED1_MASK)       </span></div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="board_8h.html#a343fd2d3ce61b84f88ddfaea32c67c58">   71</a></span>&#160;<span class="preprocessor">#define LED1_OFF (LED_PORT.OUTSET.reg = LED1_MASK)      </span></div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="board_8h.html#a267fdbba1d750146b73da35c1731fd17">   72</a></span>&#160;<span class="preprocessor">#define LED1_TOGGLE (LED_PORT.OUTTGL.reg = LED1_MASK)   </span></div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="board_8h.html#af6f84078113b55354d20585131b386f7">   79</a></span>&#160;<span class="preprocessor">#define LED2_PIN GPIO_PIN(PB, 6)                        </span></div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="board_8h.html#a40f0f4b5ae7ea50d341105ddc740101e">   80</a></span>&#160;<span class="preprocessor">#define LED2_MASK (1 &lt;&lt; 6)                              </span></div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="board_8h.html#ab55f588eb2c5177d3f7806e60d379fba">   81</a></span>&#160;<span class="preprocessor">#define LED2_ON (LED_PORT.OUTCLR.reg = LED2_MASK)       </span></div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="board_8h.html#ac6468b1df4dfabcca0bb142044d6f976">   82</a></span>&#160;<span class="preprocessor">#define LED2_OFF (LED_PORT.OUTSET.reg = LED2_MASK)      </span></div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="board_8h.html#acd16785845ce7004334b91a98707f8eb">   83</a></span>&#160;<span class="preprocessor">#define LED2_TOGGLE (LED_PORT.OUTTGL.reg = LED2_MASK)   </span></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="board_8h.html#a9a61388c9e491aec2e44cc03956bb299">   90</a></span>&#160;<span class="preprocessor">#define BTN0_PORT PORT-&gt;Group[PA]                       </span></div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="board_8h.html#aab5c3eca54046333af52593b9e360270">   91</a></span>&#160;<span class="preprocessor">#define BTN0_PIN GPIO_PIN(PA, 15)                       </span></div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="board_8h.html#a904884feea8e03c30c9a85ca6d7a8e5c">   92</a></span>&#160;<span class="preprocessor">#define BTN0_MODE GPIO_IN_PU                            </span></div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="board_8h.html#ad4a9e6a8e2eff812e3a854d1959eaf08">   99</a></span>&#160;<span class="preprocessor">#define AT86RF215_PARAM_SPI SPI_DEV(0)          </span></div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="board_8h.html#a7214d794b35dde0cfa89027a047e4e18">  100</a></span>&#160;<span class="preprocessor">#define AT86RF215_PARAM_CS GPIO_PIN(PA, 5)      </span></div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="board_8h.html#ac92d64d839a69c4e2219b01bb6fe7b44">  101</a></span>&#160;<span class="preprocessor">#define AT86RF215_PARAM_INT GPIO_PIN(PB, 4)     </span></div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="board_8h.html#ab444639ac7bb9c4c50f19ded5dda9201">  102</a></span>&#160;<span class="preprocessor">#define AT86RF215_PARAM_RESET GPIO_PIN(PB, 2)   </span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">void board_init(void);</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="board_8h.html#a5e48bb301c732e044b08f336fb851d5e">   40</a></span>&#160;<span class="preprocessor">#define XTIMER_DEV TIMER_DEV(1)                         </span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="board_8h.html#a8b747b85d4d5f2e1be910cdbc72a01de">   41</a></span>&#160;<span class="preprocessor">#define XTIMER_CHAN (0)                                 </span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="board_8h.html#a663daa01e565aee93c6f20c5845b90b4">   48</a></span>&#160;<span class="preprocessor">#define LED_PORT PORT-&gt;Group[PB]                        </span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="board_8h.html#a3fc522fda449d6edde717d6a857429cf">   55</a></span>&#160;<span class="preprocessor">#define LED0_PIN GPIO_PIN(PB, 30)                       </span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="board_8h.html#abfabde35a3e8b7ab50146a5e223bfead">   56</a></span>&#160;<span class="preprocessor">#define LED0_MASK (1 &lt;&lt; 30)                             </span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="board_8h.html#a1e48dc02333bfc2e6ad3e5bd466eecd4">   57</a></span>&#160;<span class="preprocessor">#define LED0_ON (LED_PORT.OUTCLR.reg = LED0_MASK)       </span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="board_8h.html#aef2e39b9fd343d0e437fac0463f3e02d">   58</a></span>&#160;<span class="preprocessor">#define LED0_OFF (LED_PORT.OUTSET.reg = LED0_MASK)      </span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="board_8h.html#aebc6389533d9fc8dcbe4d2129a4d5a45">   59</a></span>&#160;<span class="preprocessor">#define LED0_TOGGLE (LED_PORT.OUTTGL.reg = LED0_MASK)   </span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="board_8h.html#a318aa17e5d40e2132d2c7f6269ce7f51">   66</a></span>&#160;<span class="preprocessor">#define LED1_PIN GPIO_PIN(PB, 7)                        </span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="board_8h.html#a669ed6e073140d069b30442bf4c08842">   67</a></span>&#160;<span class="preprocessor">#define LED1_MASK (1 &lt;&lt; 7)                              </span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="board_8h.html#aadd4c7ae0cd4e9bbb17f7055dd51fe08">   68</a></span>&#160;<span class="preprocessor">#define LED1_ON (LED_PORT.OUTCLR.reg = LED1_MASK)       </span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="board_8h.html#a343fd2d3ce61b84f88ddfaea32c67c58">   69</a></span>&#160;<span class="preprocessor">#define LED1_OFF (LED_PORT.OUTSET.reg = LED1_MASK)      </span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="board_8h.html#a267fdbba1d750146b73da35c1731fd17">   70</a></span>&#160;<span class="preprocessor">#define LED1_TOGGLE (LED_PORT.OUTTGL.reg = LED1_MASK)   </span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="board_8h.html#af6f84078113b55354d20585131b386f7">   77</a></span>&#160;<span class="preprocessor">#define LED2_PIN GPIO_PIN(PB, 6)                        </span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="board_8h.html#a40f0f4b5ae7ea50d341105ddc740101e">   78</a></span>&#160;<span class="preprocessor">#define LED2_MASK (1 &lt;&lt; 6)                              </span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="board_8h.html#ab55f588eb2c5177d3f7806e60d379fba">   79</a></span>&#160;<span class="preprocessor">#define LED2_ON (LED_PORT.OUTCLR.reg = LED2_MASK)       </span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="board_8h.html#ac6468b1df4dfabcca0bb142044d6f976">   80</a></span>&#160;<span class="preprocessor">#define LED2_OFF (LED_PORT.OUTSET.reg = LED2_MASK)      </span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="board_8h.html#acd16785845ce7004334b91a98707f8eb">   81</a></span>&#160;<span class="preprocessor">#define LED2_TOGGLE (LED_PORT.OUTTGL.reg = LED2_MASK)   </span></div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="board_8h.html#a9a61388c9e491aec2e44cc03956bb299">   88</a></span>&#160;<span class="preprocessor">#define BTN0_PORT PORT-&gt;Group[PA]                       </span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="board_8h.html#aab5c3eca54046333af52593b9e360270">   89</a></span>&#160;<span class="preprocessor">#define BTN0_PIN GPIO_PIN(PA, 15)                       </span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="board_8h.html#a904884feea8e03c30c9a85ca6d7a8e5c">   90</a></span>&#160;<span class="preprocessor">#define BTN0_MODE GPIO_IN_PU                            </span></div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="board_8h.html#ad4a9e6a8e2eff812e3a854d1959eaf08">   97</a></span>&#160;<span class="preprocessor">#define AT86RF215_PARAM_SPI SPI_DEV(0)          </span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="board_8h.html#a7214d794b35dde0cfa89027a047e4e18">   98</a></span>&#160;<span class="preprocessor">#define AT86RF215_PARAM_CS GPIO_PIN(PA, 5)      </span></div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="board_8h.html#ac92d64d839a69c4e2219b01bb6fe7b44">   99</a></span>&#160;<span class="preprocessor">#define AT86RF215_PARAM_INT GPIO_PIN(PB, 4)     </span></div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="board_8h.html#ab444639ac7bb9c4c50f19ded5dda9201">  100</a></span>&#160;<span class="preprocessor">#define AT86RF215_PARAM_RESET GPIO_PIN(PB, 2)   </span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">void board_init(void);</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BOARD_H */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BOARD_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aperiph__conf_8h_html"><div class="ttname"><a href="periph__conf_8h.html">periph_conf.h</a></div><div class="ttdoc">Peripheral MCU configuration for m4a_mb board.</div></div>
@@ -176,7 +176,7 @@ $(document).ready(function(){initNavTree('board_8h_source.html',''); initResizab
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_37c3374061e37723abb75be9a4454748.html">m4a-mb</a></li><li class="navelem"><a class="el" href="dir_a641ddd3d06421c898b55389fbe0082a.html">include</a></li><li class="navelem"><a class="el" href="board_8h.html">board.h</a></li>
-    <li class="footer">Generated on Fri Dec 3 2021 12:03:21 for Mesh4all by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Generated on Fri Dec 3 2021 12:16:44 for Mesh4all by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>
 <script>
