@@ -37,26 +37,36 @@ extern "C"
  * @name Clock settings
  * @{
  */
-#define CLOCK_USE_PLL (1)               /*!< Use PLL as clock: True */
-#define CLOCK_USE_XOSC32_DFLL (0)       /*!< Use XOSC32 as clock: False */
-#define GEN2_ULP32K (0)                 /*!< Use ULP32K as clock: False */
+
+/**
+ * @brief Use Phase-Locked Loop [PLL] as reference clock: True
+ */
+#define CLOCK_USE_PLL (1)
+
+/**
+ * @brief Use External OScillator [XOSC32] as reference clock: False
+ */
+#define CLOCK_USE_XOSC32_DFLL (0)
+
+/**
+ * @brief Use the internal Ultra Low Power oscillator [ULP32K] as reference clock: False
+ */
+#define GEN2_ULP32K (0)
 
 #if CLOCK_USE_PLL
 /**
- * @brief [PLL] output frequency 47U if we are using [PLL]
- * @warning DO NOT EDIT
- * @warning [MUL] should be between 31 and 95, both numbers included
+ * @brief Set [MUL]TIPLICATOR to 47U if we are using [PLL]
+ * @warning DO NOT EDIT; [MUL] should be between 31 and 95, both numbers included
  */
 #define CLOCK_PLL_MUL (47U)
 /**
- * @brief Clock [DIV] 1U if we are using [PLL]
+ * @brief Clock [DIV]ISION 1U if we are using [PLL]
  * This don't need to be changed by now, but it can be adjusted for our requirements
  */
 #define CLOCK_PLL_DIV (1U)
 /**
  * @brief Definition for core clock if we are using [PLL]
  * @warning DO NOT EDIT; Generate the actual used core clock frequency
- * 
  */
 #define CLOCK_CORECLOCK (((CLOCK_PLL_MUL + 1) * 1000000U) / CLOCK_PLL_DIV)
 #elif CLOCK_USE_XOSC32_DFLL
@@ -73,7 +83,7 @@ extern "C"
 #define CLOCK_8MHZ (1)
 #else
 /**
- * @brief Clock [DIV]
+ * @brief Clock [DIV]ISION if we are using the internal [ULP] oscillator
  * @warning DO NOT EDIT
  */
 #define CLOCK_DIV (1U)
