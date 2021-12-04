@@ -29,24 +29,24 @@ extern "C"
 
 /**
  * @name Clock settings
- * 
+ *
  * There are three choices for selection of CORECLOCK:
- * 
+ *
  * - Usage of the Phase-Locked Loop (PLL) fed by the internal 8MHz oscillator divided by 8
  * - Usage of the 48 MHz DFLL fed by external oscillator running at 32 kHz
  * - Usage of the internal 8MHz oscillator directly, divided by N if needed
- * 
+ *
  * The PLL option allows for the usage of a wider frequency range and a more
  * **stable clock with less jitter**. This is why this **option is default**.
- * 
+ *
  * The target frequency is computed from the PLL multiplier and the PLL divisor.
  * Use the following formula to compute your values:
- * 
+ *
  * **CORECLOCK = ((PLL_MUL + 1) * 1MHz) / PLL_DIV**
- * 
+ *
  * @note The PLL circuit does not run with less than 32MHz while the maximum PLL
  *          frequency is 96MHz. So PLL_MULL must be between 31 and 95!
- * 
+ *
  * The internal Oscillator used directly can lead to a slightly better power
  * efficiency to the cost of a less stable clock. Use this option when you know
  * what you are doing! The actual core frequency is adjusted as follows:
@@ -54,13 +54,13 @@ extern "C"
  * **CORECLOCK = 8MHz / DIV**
  *
  * @note A core clock frequency below 1MHz is not recommended
- * 
+ *
  * Default parameters are the following:
- * 
+ *
  * - CLOCK_USE_PLL = True
  * - MUL = 47U
  * - DIV = 1
- * 
+ *
  * @{
  */
 
@@ -77,10 +77,9 @@ extern "C"
 /**
  * @brief OSCULP32K is factory calibrated to be around 32.768kHz but this values can
  * be of by a couple off % points, so prefer XOSC32K as default configuration.
- * 
+ *
  * 0: use XOSC32K (always 32.768kHz) to clock GCLK2
  * 1: use OSCULP32K factory calibrated (~32.768kHz) to clock GCLK2
- */
  */
 #define GEN2_ULP32K (0)
 
@@ -238,7 +237,7 @@ static const uart_conf_t uart_config[] = {
 /** @} */
 
 /**
- * @name Enabled or Diabled PWM channels
+ * @name Enabled or Disabled PWM channels
  * @{
  */
 #define PWM_0_EN 1              /*!< PWM 0 is enabled */
@@ -290,7 +289,7 @@ static const pwm_conf_chan_t pwm_chan2_config[] = {
 #endif
 
 /**
- * @brief Setings for PWM peripheral
+ * @brief Settings for PWM peripheral
  */
 static const pwm_conf_t pwm_config[] = {
 #if PWM_0_EN
@@ -308,7 +307,7 @@ static const pwm_conf_t pwm_config[] = {
  * @name PWM config
  * @{
  */
-#define PWM_NUMOF ARRAY_SIZE(pwm_config)        /*!< Number of PWM channels, by default only chan0 */
+#define PWM_NUMOF ARRAY_SIZE(pwm_config)        /*!< Number of PWM channels, default: only chan0 */
 /** @} */
 
 /**
