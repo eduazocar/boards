@@ -20,7 +20,7 @@
     <meta name="twitter:description"
         content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
     <!-- END twitter metadata -->
-    <title>Mesh4all: Boards</title>
+    <title>Mesh4all: Overview</title>
     <link href="tabs.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/svg+xml" href="logo.drawio.svg" />
     <script type="text/javascript" src="jquery.js"></script>
@@ -105,10 +105,34 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Boards </div>  </div>
+<div class="title">Overview </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Definitions for <a href="https://mesh4all.github.io/boards">supported boards</a> </p>
+<div class="textblock"><p>Coccinelle allows testing C code against semantic patches, automatically creating diffs on the way. See <a href="http://coccinelle.lip6.fr/">http://coccinelle.lip6.fr/</a> for more information.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Coccinelle in RIOT</h1>
+<p>RIOT uses Coccinelle as part of the CI static-tests as follows:</p>
+<ul>
+<li>every added or modified file will be checked</li>
+<li>there are two sets of coccinelle patches: "force" and "warn", found in dist/tools/coccinelle/(warn|force)</li>
+<li>if coccinelle has a hit in "warn", the resulting patch will be printed, but doesn't cause the CI to fail</li>
+<li>if coccinelle has a hit in "force", the CI build fails</li>
+</ul>
+<p>We add semantic patches first to "warn", fix our codebase, and if the patch is confident enough, move it to "force".</p>
+<p>If coccinelle is installed, you can test the whole RIOT checkout by executing </p><pre class="fragment">$ dist/tools/coccinelle/check.sh
+</pre><p>... or just test a single patch: </p><pre class="fragment">$ dist/tools/coccinelle/check.sh path/to/semantic_patch.cocci
+</pre><p>... or just the files changed to &lt;branch&gt;: </p><pre class="fragment">$ BRANCH=&lt;branch&gt; dist/tools/coccinelle/check.sh
+</pre><p>... or combined: </p><pre class="fragment">$ BRANCH=&lt;branch&gt; dist/tools/coccinelle/check.sh path/to/semantic_patch.cocci
+</pre><p>... or test a single file: </p><pre class="fragment">$ FILES=path/to/file dist/tools/coccinelle/check.sh [path/to/semantic_patch.cocci]
+</pre><h1><a class="anchor" id="autotoc_md2"></a>
+Applying coccinelle's patches:</h1>
+<p>If the coccinelle diff makes sense and you'd like to apply it, you can do so by piping coccinelle's output into patch: </p><pre class="fragment">$ dist/tools/coccinelle/check.sh | patch -p0
+</pre><p>Specifying BRANCH, FILES and/or a specific patch file works here, too.</p>
+<p>Beware that some of our semantic patch files might just <em>find</em> occurrences of bad code or style! Not all semantic patches output useful diffs.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+My PR has coccinelle warnings/errors!</h1>
+<p>Using above commands, try to find out which file caused the warning/error, and why. If you're absolutely sure your code is correct, you can ignore it if it's a warning. It's advisable to get this confirmed by others.</p>
+<p>If the PR triggers a coccinelle error on code that you're sure is correct, open a PR that moves the corresponding patch from dist/tools/coccinelle/force to dist/tools/coccinelle/warn. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -116,7 +140,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Dec 3 2021 20:32:41 for Mesh4all by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Generated on Sat Dec 4 2021 08:33:57 for Mesh4all by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>
 <script>
