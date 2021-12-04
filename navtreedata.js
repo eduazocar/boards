@@ -23,10 +23,11 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Mesh4all", "index.html", [
-    [ "Overview", "index.html", [
-      [ "Coccinelle in RIOT", "index.html#autotoc_md1", null ],
-      [ "Applying coccinelle's patches:", "index.html#autotoc_md2", null ],
-      [ "My PR has coccinelle warnings/errors!", "index.html#autotoc_md3", null ]
+    [ "What is this?", "index.html", [
+      [ "Documentation", "index.html#autotoc_md24", [
+        [ "For contributors", "index.html#autotoc_md25", null ],
+        [ "For readers", "index.html#autotoc_md26", null ]
+      ] ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Files", "files.html", [

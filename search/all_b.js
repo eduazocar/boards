@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['sam_5fusbdev_5fconfig_54',['sam_usbdev_config',['../periph__conf_8h.html#a57b47076d6e87497ff2901208cb484dc',1,'periph_conf.h']]],
-  ['saul_5fgpio_5fparams_55',['saul_gpio_params',['../gpio__params_8h.html#a5442106fb6a31a0cc477a93d79701765',1,'gpio_params.h']]],
-  ['spi_5fconfig_56',['spi_config',['../periph__conf_8h.html#a873188d7292e07499dcde9674b1e849c',1,'periph_conf.h']]],
-  ['spi_5fnumof_57',['SPI_NUMOF',['../periph__conf_8h.html#ab35a2b79568128efef74adf1ba1910a8',1,'periph_conf.h']]]
+  ['timer_5f0_5fisr_57',['TIMER_0_ISR',['../periph__conf_8h.html#a4c490d334538c05373718609ca5fe2d4',1,'periph_conf.h']]],
+  ['timer_5f0_5fmax_5fvalue_58',['TIMER_0_MAX_VALUE',['../periph__conf_8h.html#ab43cbb6f07f99fddc0e0f6a710160654',1,'periph_conf.h']]],
+  ['timer_5f1_5fisr_59',['TIMER_1_ISR',['../periph__conf_8h.html#ab1f8037bcb60d4669f508c471f92bc17',1,'periph_conf.h']]],
+  ['timer_5fconfig_60',['timer_config',['../periph__conf_8h.html#a8b28b4c69f45b3c82837e7f5269f00a9',1,'periph_conf.h']]],
+  ['timer_5fnumof_61',['TIMER_NUMOF',['../periph__conf_8h.html#a6e2f66f5b6f5c835dd11f9766c4ed897',1,'periph_conf.h']]]
 ];
