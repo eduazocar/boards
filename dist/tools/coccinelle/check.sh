@@ -6,7 +6,7 @@
 # General Public License v2.1. See the file LICENSE in the top level
 # directory for more details.
 
-: "${RIOTBASE:=$(cd $(dirname $0)/../../../; pwd)}"
+: "${RIOTBASE:=$(cd $(dirname $0)/../../../ || exit; pwd)}"
 cd $RIOTBASE
 
 : "${RIOTTOOLS:=${RIOTBASE}/dist/tools}"
