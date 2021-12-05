@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="gpio__params_8h.html" target="_top" xlink:title="Board specific configuration of direct mapped GPIOs.">
+<g id="a_node2"><a xlink:href="m4a-mb_2include_2gpio__params_8h.html" target="_top" xlink:title="Board specific configuration of direct mapped GPIOs.">
 <polygon fill="none" stroke="black" points="10.5,-0.5 10.5,-34.5 153.5,-34.5 153.5,-0.5 10.5,-0.5"/>
 <text text-anchor="start" x="18.5" y="-20.9" font-family="Helvetica,sans-Serif" font-size="12.00">m4a&#45;mb/include/gpio</text>
 <text text-anchor="middle" x="82" y="-7.9" font-family="Helvetica,sans-Serif" font-size="12.00">_params.h</text>

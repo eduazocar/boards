@@ -24,9 +24,9 @@ var NAVTREE =
 [
   [ "Mesh4all", "index.html", [
     [ "What is this?", "index.html", [
-      [ "Documentation", "index.html#autotoc_md24", [
-        [ "For contributors", "index.html#autotoc_md25", null ],
-        [ "For readers", "index.html#autotoc_md26", null ]
+      [ "Documentation", "index.html#autotoc_md26", [
+        [ "For contributors", "index.html#autotoc_md27", null ],
+        [ "For readers", "index.html#autotoc_md28", null ]
       ] ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
