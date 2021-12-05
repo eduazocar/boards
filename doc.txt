@@ -8,14 +8,14 @@ All those boards supported by Mesh4all and not defined in RIOT-OS
 ## Board requirements
 
 The goal of this repo is not to list general purpose dev boards or a dev-kit, however the goal is
- to accomodate those boards with a specific purpose, such as:
+ to accommodate those boards with a specific purpose, such as:
 
 - Environmental monitoring and metering systems
 - Data communication
 - Data storage and distribution
 - Action/Reaction systems
 
-### Enviromental monitoring
+### Environmental monitoring
 
 Systems collecting eviromental data such as gases, temperature, pressure, moisture, etc or metering systems designed to measure any kind of data such as distance, weight, volume, positioning, etc.
 

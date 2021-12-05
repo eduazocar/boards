@@ -1,7 +1,7 @@
 RIOT_BASE = RIOT
 
 static-test:
-	$(shell git clone -q git@github.com:Mesh4all/RIOT.git)
+	$(shell git clone -q https://github.com/Mesh4all/RIOT.git)
 	./dist/tools/ci/static_tests.sh
 
 all: 
@@ -9,3 +9,6 @@ all:
 
 clean:
 	$(shell rm -rf RIOT)
+
+docs:
+	cd doc/doxygen && make
