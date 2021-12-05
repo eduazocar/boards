@@ -1,6 +1,6 @@
 <map id="m4a&#45;mb/include/gpio_params.h" name="m4a&#45;mb/include/gpio_params.h">
 <area shape="rect" id="node1" title="Board specific configuration of direct mapped GPIOs." alt="" coords="110,5,301,52"/>
-<area shape="rect" id="node2" href="$board_8h.html" title="Board specific definitions for the M4A&#45;MB." alt="" coords="100,100,183,129"/>
+<area shape="rect" id="node2" href="$m4a-mb_2include_2board_8h.html" title="Board specific definitions for the M4A&#45;MB." alt="" coords="100,100,183,129"/>
 <area shape="rect" id="node7" title=" " alt="" coords="207,100,332,129"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,255,72,284"/>
 <area shape="rect" id="node4" href="$periph__conf_8h.html" title="Peripheral MCU configuration for m4a_mb board." alt="" coords="77,177,206,207"/>
