@@ -6,8 +6,8 @@
 # General Public License v2.1. See the file LICENSE in the top level
 # directory for more details.
 
-: "${RIOTBASE:=$(cd $(dirname $0)/../../../ || exit; pwd)}"
-cd $RIOTBASE
+: "${RIOTBASE:=$(cd "$(dirname "$0")/../../../" || exit; pwd)}"
+cd "$RIOTBASE" || exit;
 
 : "${RIOTTOOLS:=${RIOTBASE}/dist/tools}"
 . "${RIOTTOOLS}"/ci/changed_files.sh
@@ -16,7 +16,7 @@ cd $RIOTBASE
 EXIT_CODE=0
 
 filter() {
-    if [ $COCCINELLE_QUIET -eq 0 ]; then
+    if [ "$COCCINELLE_QUIET" -eq 0 ]; then
         cat
     else
         grep '^---' | cut -f 2 -d ' '
@@ -30,7 +30,7 @@ indent() {
 _annotate_diff() {
     if [ -n "$1" -a -n "$2" -a -n "$3" ]; then
         MSG="Coccinelle proposes the following patch:\n\n$3"
-        if [ $COCCINELLE_WARNONLY -eq 0 ]; then
+        if [ "$COCCINELLE_WARNONLY" -eq 0 ]; then
             IFS="${OLD_IFS}" github_annotate_error "$1" "$2" "${MSG}"
         else
             IFS="${OLD_IFS}" github_annotate_warning "$1" "$2" "${MSG}"
@@ -39,13 +39,13 @@ _annotate_diff() {
 }
 
 coccinelle_checkone() {
-    : ${COCCINELLE_WARNONLY:=0}
+    : "${COCCINELLE_WARNONLY:=0}"
     OUT="$(spatch --very-quiet \
-        --macro-file-builtins ${RIOTTOOLS}/coccinelle/include/riot-standard.h \
-        --sp-file $patch ${FILES} | filter)"
+        --macro-file-builtins "${RIOTTOOLS}/coccinelle/include/riot-standard.h" \
+        --sp-file "$patch" "${FILES}" | filter)"
 
     if [ -n "$OUT" ]; then
-        if [ $COCCINELLE_QUIET -eq 1 ]; then
+        if [ "$COCCINELLE_QUIET" -eq 1 ]; then
             echo "$patch:"
             echo "$OUT" | indent
             if [ $COCCINELLE_WARNONLY -eq 0 ]; then
@@ -117,18 +117,18 @@ coccinelle_checkall() {
         exit 1
     }
 
-    for patch in $dir/*; do
-        coccinelle_checkone $patch
+    for patch in "$dir"/*; do
+        coccinelle_checkone "$patch"
     done
 }
 
-: ${FILES:=$(FILEREGEX='\.c$' changed_files)}
+: "${FILES:=$(FILEREGEX='\.c$' changed_files)}"
 
 if [ -z "${FILES}" ]; then
     exit
 fi
 
-: ${COCCINELLE_QUIET:=0}
+: "${COCCINELLE_QUIET:=0}"
 
 github_annotate_setup
 
