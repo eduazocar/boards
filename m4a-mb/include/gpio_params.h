@@ -30,7 +30,7 @@ extern "C"
  *
  * @brief Saul Settings
  * @see [[S]ensor [A]ctuator [U]ber [L]ayer](https://doc.riot-os.org/group__drivers__saul.html)
- * 
+ *
  * ### LED0
  *
  * @param name "LED (Orange)"

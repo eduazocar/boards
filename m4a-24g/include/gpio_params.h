@@ -1,13 +1,12 @@
 /*
  * Copyright (C) 2015 Freie Universität Berlin
- *               2015 Kaspar Schleiser <kaspar@schleiser.de>
+ * Copyright (C) 2015 Kaspar Schleiser <kaspar@schleiser.de>
  * Copyright (C) 2021 Mesh4all <contact@mesh4all.org>
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
  * directory for more details.
  */
-
 /**
  * @ingroup boards_m4a-24g
  * @{
@@ -33,12 +32,12 @@ extern "C" {
 
 /**
  * ## Saul GPIO params
- * 
+ *
  * @brief Saul Settings
  * @see [[S]ensor [A]ctuator [U]ber [L]ayer](https://doc.riot-os.org/group__drivers__saul.html)
  *
  * ### LEDs and Buttons
- * 
+ *
  * | index | name          | pin      | mode      | flags              |
  * |-------|---------------|----------|-----------|--------------------|
  * | 0     | "LED(orange)" | LED0_PIN | GPIO_OUT  | SAUL_GPIO_INVERTED |

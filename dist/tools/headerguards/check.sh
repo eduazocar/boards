@@ -7,7 +7,7 @@
 # directory for more details.
 
 : "${RIOTBASE:=$(cd $(dirname $0)/../../../; pwd)}"
-cd $RIOTBASE
+cd $RIOTBASE || exit;
 
 : "${RIOTTOOLS:=${RIOTBASE}/dist/tools}"
 . "${RIOTTOOLS}"/ci/changed_files.sh

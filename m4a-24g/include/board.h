@@ -6,7 +6,6 @@
  * General Public License v2.1. See the file LICENSE in the top level
  * directory for more details.
  */
-
 /**
  * @ingroup     boards_m4a-24g
  * @{
@@ -14,9 +13,9 @@
  * @file
  * @brief       Board specific definitions for the M4A-24G board
  *
- * @author      luisan00 <luisan00@hotmail.com>
  * @author      Thomas Eichinger <thomas.eichinger@fu-berlin.de>
  * @author      Sebastian Meiling <s@mlng.net>
+ * @author      luisan00 <luisan00@hotmail.com>
  */
 
 #ifndef BOARD_H
@@ -64,27 +63,26 @@ extern "C" {
  * @name    LED pin definitions and handlers
  * @{
  */
-#define LED0_PIN            GPIO_PIN(0, 19)                     /*!< LED0 is routed to GPIO(0, 19)*/
-#define LED_PORT            PORT->Group[0]                      /*!< LED0 port*/
-#define LED0_MASK           (1 << 19)                           /*!< LED0 mask */
-#define LED0_ON             (LED_PORT.OUTCLR.reg = LED0_MASK)   /*!< LED0 Handler */
-#define LED0_OFF            (LED_PORT.OUTSET.reg = LED0_MASK)   /*!< LED0 Handler */
-#define LED0_TOGGLE         (LED_PORT.OUTTGL.reg = LED0_MASK)   /*!< LED0 Handler */
+#define LED0_PIN            GPIO_PIN(0, 19)                   /*!< LED0 is routed to GPIO(0, 19)*/
+#define LED_PORT            PORT->Group[0]                    /*!< LED0 port*/
+#define LED0_MASK           (1 << 19)                         /*!< LED0 mask */
+#define LED0_ON             (LED_PORT.OUTCLR.reg = LED0_MASK) /*!< LED0 Handler */
+#define LED0_OFF            (LED_PORT.OUTSET.reg = LED0_MASK) /*!< LED0 Handler */
+#define LED0_TOGGLE         (LED_PORT.OUTTGL.reg = LED0_MASK) /*!< LED0 Handler */
 /** @} */
 
 /**
  * @name    SW0 (Button) pin definitions
  * @{
  */
-#define BTN0_PORT           PORT->Group[0]                      /*!< BTN0 port */
-#define BTN0_PIN            GPIO_PIN(0, 28)                     /*!< BTN0 routed to GPIO_PIN(0, 28) */
-#define BTN0_MODE           GPIO_IN_PU                          /*!< BTN0 GPIO mode */
+#define BTN0_PORT           PORT->Group[0]      /*!< BTN0 port */
+#define BTN0_PIN            GPIO_PIN(0, 28)     /*!< BTN0 routed to GPIO_PIN(0, 28) */
+#define BTN0_MODE           GPIO_IN_PU          /*!< BTN0 GPIO mode */
 /** @} */
 
 /**
  * @name    Antenna configuration pin interface
  * @{
- * @see 
  */
 #define RFCTL1_PIN          GPIO_PIN(0, 9)  /*!< RF control pin 1 assigned to GPIO(0, 9) */
 #define RFCTL2_PIN          GPIO_PIN(0, 12) /*!< RF control pin 2 is assigned to GPIO(0, 12) */
@@ -92,7 +90,7 @@ extern "C" {
 
 /**
  * @brief   Antenna configuration values
- * 
+ *
  * - RFCTL_ANTENNA_BOARD: On-board antenna
  * - RFCTL_ANTENA_EXT: External antenna
  */

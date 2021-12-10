@@ -6,7 +6,6 @@
  * General Public License v2.1. See the file LICENSE in the top level
  * directory for more details.
  */
-
 /**
  * @ingroup     boards_m4a-24g
  * @{
@@ -168,16 +167,16 @@ static const tc32_conf_t timer_config[] = {
 
 /**
  * @brief UART config
- * 
+ *
  */
 static const uart_conf_t uart_config[] = {
     {
         .dev      = &SERCOM0->USART,
-        .rx_pin   = GPIO_PIN(PA,5),
-        .tx_pin   = GPIO_PIN(PA,4),
+        .rx_pin   = GPIO_PIN(PA, 5),
+        .tx_pin   = GPIO_PIN(PA, 4),
 #ifdef MODULE_PERIPH_UART_HW_FC
-        .rts_pin  = GPIO_PIN(PA,6),
-        .cts_pin  = GPIO_PIN(PA,7),
+        .rts_pin  = GPIO_PIN(PA, 6),
+        .cts_pin  = GPIO_PIN(PA, 7),
 #endif
         .mux      = GPIO_MUX_D,
         .rx_pad   = UART_PAD_RX_1,
@@ -191,11 +190,11 @@ static const uart_conf_t uart_config[] = {
     },
     {
         .dev      = &SERCOM5->USART,
-        .rx_pin   = GPIO_PIN(PA,23),
-        .tx_pin   = GPIO_PIN(PA,22),
+        .rx_pin   = GPIO_PIN(PA, 23),
+        .tx_pin   = GPIO_PIN(PA, 22),
 #ifdef MODULE_PERIPH_UART_HW_FC
-        .rts_pin  = GPIO_PIN(PB,22),
-        .cts_pin  = GPIO_PIN(PB,23),
+        .rts_pin  = GPIO_PIN(PB, 22),
+        .cts_pin  = GPIO_PIN(PB, 23),
 #endif
         .mux      = GPIO_MUX_D,
         .rx_pad   = UART_PAD_RX_1,
@@ -247,7 +246,7 @@ static const pwm_conf_chan_t pwm_chan0_config[] = {
 /**
  * @brief IF PWM_1 is enabled then the following values are configured:
  * @note Default value for **PWM_1_EN** is 1, **ENABLED**
- * 
+ *
  * | PWM  | GPIO pin   | MUX value  | Channel |
  * |:----:|------------|------------|:-------:|
  * | 0    | PA16       | GPIO_MUX_F | 0       |
@@ -283,7 +282,6 @@ static const pwm_conf_t pwm_config[] = {
 
 /**
  * @brief SPI config
- * 
  */
 static const spi_conf_t spi_config[] = {
     {
@@ -329,7 +327,7 @@ static const spi_conf_t spi_config[] = {
 
 /**
  * @brief I2C devices configuration
- * 
+ *
  * | I2C | SCL pin | SDA pin |
  * |:---:|:--------|:--------|
  * | 0   | PA17    | PA16    |
@@ -361,7 +359,7 @@ static const i2c_conf_t i2c_config[] = {
 /**
  * @brief   The desired frequency for the Real Time Timer peripheral in Hz.
  * @see  For changes checkout rtt.c and rtt.h
- * 
+ *
  */
 #define RTT_FREQUENCY       (32768U)
 #endif
@@ -387,7 +385,7 @@ static const adc_conf_chan_t adc_channels[] = {
 };
 
 /**
- * @name Number of ADCs available 
+ * @name Number of ADCs available
  * @{
  */
 #define ADC_NUMOF   ARRAY_SIZE(adc_channels)    /*!< Number of ADCs available */

@@ -6,15 +6,14 @@
  * General Public License v2.1. See the file LICENSE in the top level
  * directory for more details.
  */
-
 /**
  * @ingroup     boards_m4a-24g
  * @{
  *
  * @file
  * @brief       Board specific implementations for the M4A-24G board
- * 
- * @author      Luis A. Ruiz <luisan00@hotmail.com> 
+ *
+ * @author      Luis A. Ruiz <luisan00@hotmail.com>
  * @author      Thomas Eichinger <thomas.eichinger@fu-berlin.de>
  * @author      Hauke Petersen <hauke.petersen@fu-berlin.de>
  *
