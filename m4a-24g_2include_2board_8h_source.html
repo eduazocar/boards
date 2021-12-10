@@ -116,59 +116,58 @@ $(document).ready(function(){initNavTree('m4a-24g_2include_2board_8h_source.html
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * General Public License v2.1. See the file LICENSE in the top level</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * directory for more details.</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifndef BOARD_H</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define BOARD_H</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;cpu.h&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="m4a-24g_2include_2periph__conf_8h.html">periph_conf.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;periph_cpu.h&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a5e48bb301c732e044b08f336fb851d5e">   37</a></span>&#160;<span class="preprocessor">#define XTIMER_DEV          TIMER_DEV(1)    </span></div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a8b747b85d4d5f2e1be910cdbc72a01de">   38</a></span>&#160;<span class="preprocessor">#define XTIMER_CHAN         (0)             </span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#ae3245610b3181dbfab13ae3e5fae7e37">   45</a></span>&#160;<span class="preprocessor">#define CONFIG_ZTIMER_USEC_TYPE    ZTIMER_TYPE_PERIPH_TIMER </span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a2378d153069150591eb7fa2082f573d9">   46</a></span>&#160;<span class="preprocessor">#define CONFIG_ZTIMER_USEC_DEV     TIMER_DEV(1)             </span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a0da89da11cd4268db8298bae9fbe1d85">   50</a></span>&#160;<span class="preprocessor">#define CONFIG_ZTIMER_USEC_MIN     (10)</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a555f5ce4ea27f15da0ed318fd79704ee">   57</a></span>&#160;<span class="preprocessor">#define AT86RF2XX_PARAM_CS         GPIO_PIN(PB, 31) </span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#ab47f3ac0a872633fbef6ebe83d52883a">   58</a></span>&#160;<span class="preprocessor">#define AT86RF2XX_PARAM_INT        GPIO_PIN(PB, 0)  </span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#ae453db88a26d1b28125182e50159c693">   59</a></span>&#160;<span class="preprocessor">#define AT86RF2XX_PARAM_SLEEP      GPIO_PIN(PA, 20) </span></div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#ae1083f9546ac5eaf9cd81065ae0ac5c6">   60</a></span>&#160;<span class="preprocessor">#define AT86RF2XX_PARAM_RESET      GPIO_PIN(PB, 15) </span></div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a3fc522fda449d6edde717d6a857429cf">   67</a></span>&#160;<span class="preprocessor">#define LED0_PIN            GPIO_PIN(0, 19)                     </span></div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a663daa01e565aee93c6f20c5845b90b4">   68</a></span>&#160;<span class="preprocessor">#define LED_PORT            PORT-&gt;Group[0]                      </span></div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#abfabde35a3e8b7ab50146a5e223bfead">   69</a></span>&#160;<span class="preprocessor">#define LED0_MASK           (1 &lt;&lt; 19)                           </span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a1e48dc02333bfc2e6ad3e5bd466eecd4">   70</a></span>&#160;<span class="preprocessor">#define LED0_ON             (LED_PORT.OUTCLR.reg = LED0_MASK)   </span></div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#aef2e39b9fd343d0e437fac0463f3e02d">   71</a></span>&#160;<span class="preprocessor">#define LED0_OFF            (LED_PORT.OUTSET.reg = LED0_MASK)   </span></div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#aebc6389533d9fc8dcbe4d2129a4d5a45">   72</a></span>&#160;<span class="preprocessor">#define LED0_TOGGLE         (LED_PORT.OUTTGL.reg = LED0_MASK)   </span></div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a9a61388c9e491aec2e44cc03956bb299">   79</a></span>&#160;<span class="preprocessor">#define BTN0_PORT           PORT-&gt;Group[0]                      </span></div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#aab5c3eca54046333af52593b9e360270">   80</a></span>&#160;<span class="preprocessor">#define BTN0_PIN            GPIO_PIN(0, 28)                     </span></div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a904884feea8e03c30c9a85ca6d7a8e5c">   81</a></span>&#160;<span class="preprocessor">#define BTN0_MODE           GPIO_IN_PU                          </span></div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a2364f376947112a08b6c534235a8f4fa">   89</a></span>&#160;<span class="preprocessor">#define RFCTL1_PIN          GPIO_PIN(0, 9)  </span></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a834d0ca9dc3c0d7e24ba2848ff6ddc1c">   90</a></span>&#160;<span class="preprocessor">#define RFCTL2_PIN          GPIO_PIN(0, 12) </span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">enum {</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    RFCTL_ANTENNA_BOARD,</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    RFCTL_ANTENNA_EXT,</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#ifndef RFCTL_ANTENNA_DEFAULT</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a8374c2ca3f70167aff3c6148a5e4ae62">  112</a></span>&#160;<span class="preprocessor">#define RFCTL_ANTENNA_DEFAULT      RFCTL_ANTENNA_BOARD</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m4a-24g_2include_2board_8h.html#a916f2adc2080b4fe88034086d107a8dc">board_init</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m4a-24g_2include_2board_8h.html#a6fa97fb22cd406ad1bcf804519ce3927">board_antenna_config</a>(uint8_t antenna);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#ifndef BOARD_H</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define BOARD_H</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;cpu.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="m4a-24g_2include_2periph__conf_8h.html">periph_conf.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;periph_cpu.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a5e48bb301c732e044b08f336fb851d5e">   36</a></span>&#160;<span class="preprocessor">#define XTIMER_DEV          TIMER_DEV(1)    </span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a8b747b85d4d5f2e1be910cdbc72a01de">   37</a></span>&#160;<span class="preprocessor">#define XTIMER_CHAN         (0)             </span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#ae3245610b3181dbfab13ae3e5fae7e37">   44</a></span>&#160;<span class="preprocessor">#define CONFIG_ZTIMER_USEC_TYPE    ZTIMER_TYPE_PERIPH_TIMER </span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a2378d153069150591eb7fa2082f573d9">   45</a></span>&#160;<span class="preprocessor">#define CONFIG_ZTIMER_USEC_DEV     TIMER_DEV(1)             </span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a0da89da11cd4268db8298bae9fbe1d85">   49</a></span>&#160;<span class="preprocessor">#define CONFIG_ZTIMER_USEC_MIN     (10)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a555f5ce4ea27f15da0ed318fd79704ee">   56</a></span>&#160;<span class="preprocessor">#define AT86RF2XX_PARAM_CS         GPIO_PIN(PB, 31) </span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#ab47f3ac0a872633fbef6ebe83d52883a">   57</a></span>&#160;<span class="preprocessor">#define AT86RF2XX_PARAM_INT        GPIO_PIN(PB, 0)  </span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#ae453db88a26d1b28125182e50159c693">   58</a></span>&#160;<span class="preprocessor">#define AT86RF2XX_PARAM_SLEEP      GPIO_PIN(PA, 20) </span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#ae1083f9546ac5eaf9cd81065ae0ac5c6">   59</a></span>&#160;<span class="preprocessor">#define AT86RF2XX_PARAM_RESET      GPIO_PIN(PB, 15) </span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a3fc522fda449d6edde717d6a857429cf">   66</a></span>&#160;<span class="preprocessor">#define LED0_PIN            GPIO_PIN(0, 19)                   </span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a663daa01e565aee93c6f20c5845b90b4">   67</a></span>&#160;<span class="preprocessor">#define LED_PORT            PORT-&gt;Group[0]                    </span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#abfabde35a3e8b7ab50146a5e223bfead">   68</a></span>&#160;<span class="preprocessor">#define LED0_MASK           (1 &lt;&lt; 19)                         </span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a1e48dc02333bfc2e6ad3e5bd466eecd4">   69</a></span>&#160;<span class="preprocessor">#define LED0_ON             (LED_PORT.OUTCLR.reg = LED0_MASK) </span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#aef2e39b9fd343d0e437fac0463f3e02d">   70</a></span>&#160;<span class="preprocessor">#define LED0_OFF            (LED_PORT.OUTSET.reg = LED0_MASK) </span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#aebc6389533d9fc8dcbe4d2129a4d5a45">   71</a></span>&#160;<span class="preprocessor">#define LED0_TOGGLE         (LED_PORT.OUTTGL.reg = LED0_MASK) </span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a9a61388c9e491aec2e44cc03956bb299">   78</a></span>&#160;<span class="preprocessor">#define BTN0_PORT           PORT-&gt;Group[0]      </span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#aab5c3eca54046333af52593b9e360270">   79</a></span>&#160;<span class="preprocessor">#define BTN0_PIN            GPIO_PIN(0, 28)     </span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a904884feea8e03c30c9a85ca6d7a8e5c">   80</a></span>&#160;<span class="preprocessor">#define BTN0_MODE           GPIO_IN_PU          </span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a2364f376947112a08b6c534235a8f4fa">   87</a></span>&#160;<span class="preprocessor">#define RFCTL1_PIN          GPIO_PIN(0, 9)  </span></div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a834d0ca9dc3c0d7e24ba2848ff6ddc1c">   88</a></span>&#160;<span class="preprocessor">#define RFCTL2_PIN          GPIO_PIN(0, 12) </span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">enum {</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    RFCTL_ANTENNA_BOARD,</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    RFCTL_ANTENNA_EXT,</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#ifndef RFCTL_ANTENNA_DEFAULT</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="m4a-24g_2include_2board_8h.html#a8374c2ca3f70167aff3c6148a5e4ae62">  110</a></span>&#160;<span class="preprocessor">#define RFCTL_ANTENNA_DEFAULT      RFCTL_ANTENNA_BOARD</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m4a-24g_2include_2board_8h.html#a916f2adc2080b4fe88034086d107a8dc">board_init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keywordtype">void</span> <a class="code" href="m4a-24g_2include_2board_8h.html#a6fa97fb22cd406ad1bcf804519ce3927">board_antenna_config</a>(uint8_t antenna);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BOARD_H */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BOARD_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="am4a-24g_2include_2board_8h_html_a6fa97fb22cd406ad1bcf804519ce3927"><div class="ttname"><a href="m4a-24g_2include_2board_8h.html#a6fa97fb22cd406ad1bcf804519ce3927">board_antenna_config</a></div><div class="ttdeci">void board_antenna_config(uint8_t antenna)</div><div class="ttdoc">Set antenna switch.</div></div>
@@ -179,7 +178,7 @@ $(document).ready(function(){initNavTree('m4a-24g_2include_2board_8h_source.html
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_521a9ec750d92ccaa863bc2022b3c082.html">m4a-24g</a></li><li class="navelem"><a class="el" href="dir_1a91ba057e7618aaa89814323bd728ef.html">include</a></li><li class="navelem"><a class="el" href="m4a-24g_2include_2board_8h.html">board.h</a></li>
-    <li class="footer">Generated on Wed Dec 8 2021 12:41:13 for Mesh4all by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Generated on Fri Dec 10 2021 22:28:37 for Mesh4all by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
 </div>
 <script>
