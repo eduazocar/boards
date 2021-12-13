@@ -27,7 +27,8 @@ var NAVTREE =
       [ "Documentation", "index.html#autotoc_md26", [
         [ "For contributors", "index.html#autotoc_md27", null ],
         [ "For readers", "index.html#autotoc_md28", null ]
-      ] ]
+      ] ],
+      [ "License", "index.html#autotoc_md29", null ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Files", "files.html", [
